@@ -52,95 +52,197 @@
     <!--/Header-->
 
     <!--Main-->
-    <main class="d-inline-flex">
-        <aside class="side-menu">
-            <ul class="side-menu_info mt-4">
-                <li><h4>All products</h4></li>
-                <li><h4>Categories</h4></li>
-                <li><h4>Brands</h4></li>
-                <li><h4>Other</h4></li>
-            </ul>
+
+    <div class="wrapper">
+        <aside>
+            <header>
+                <h1 class="logo">Yarbe Ecommerce</h1>
+            </header>
+            <nav>
+                <ul class="menu">
+                    <li><button class="boton-menu boton-categoria active"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-wallet-fill"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                <path
+                                    d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6z" />
+                            </svg> All Products</button></li>
+                    <li><button class="boton-menu boton-categoria"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-chat-right-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2ZM8 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
+                            </svg> Cardiovascular</button></li>
+                    <li><button class="boton-menu boton-categoria"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-align-middle" viewBox="0 0 16 16">
+                                <path
+                                    d="M6 13a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v10zM1 8a.5.5 0 0 0 .5.5H6v-1H1.5A.5.5 0 0 0 1 8zm14 0a.5.5 0 0 1-.5.5H10v-1h4.5a.5.5 0 0 1 .5.5z" />
+                            </svg> Hematology</button></li>
+                    <li><button class="boton-menu boton-categoria"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-backspace-reverse-fill"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M0 3a2 2 0 0 1 2-2h7.08a2 2 0 0 1 1.519.698l4.843 5.651a1 1 0 0 1 0 1.302L10.6 14.3a2 2 0 0 1-1.52.7H2a2 2 0 0 1-2-2V3zm9.854 2.854a.5.5 0 0 0-.708-.708L7 7.293 4.854 5.146a.5.5 0 1 0-.708.708L6.293 8l-2.147 2.146a.5.5 0 0 0 .708.708L7 8.707l2.146 2.147a.5.5 0 0 0 .708-.708L7.707 8l2.147-2.146z" />
+                            </svg> Oncology</button></li>
+                    <li><button class="boton-menu boton-categoria"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-backspace-reverse-fill"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M0 3a2 2 0 0 1 2-2h7.08a2 2 0 0 1 1.519.698l4.843 5.651a1 1 0 0 1 0 1.302L10.6 14.3a2 2 0 0 1-1.52.7H2a2 2 0 0 1-2-2V3zm9.854 2.854a.5.5 0 0 0-.708-.708L7 7.293 4.854 5.146a.5.5 0 1 0-.708.708L6.293 8l-2.147 2.146a.5.5 0 0 0 .708.708L7 8.707l2.146 2.147a.5.5 0 0 0 .708-.708L7.707 8l2.147-2.146z" />
+                            </svg> Oncology</button></li>
+                    <li><button class="boton-menu boton-categoria"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                        height="16" fill="currentColor" class="bi bi-chat-right-dots-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+                    </svg> Hormonal</button></li>
+                    <li><button class="boton-menu boton-categoria"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                <path
+                                    d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                            </svg> Eye Conditions</button></li>
+                </ul>
+            </nav>
+            <footer>
+                <p class="texto-footer">© 2023 Carpi Code</p>
+            </footer>
         </aside>
-
-        <section class="container-fluid section-product pt-4">
-            <div class="row">
-
-                <div class="col-sm-12 col-md-6 col-lg-3 mb-4 item-card">
-                    <div class="card h-100">
-                        <img src="../stock/istockphoto-1300036753-1024x1024.jpg" class="card-img-top" alt="Perro 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Perro</h5>
-                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure
-                                voluptatem quam facere ipsum, modi molestias. Dolorum voluptas quod expedita
-                                veritatis
-                                voluptate ad, omnis rerum est assumenda repellendus, ipsum, earum saepe?</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
+        <main>
+            <h2 class="titulo-principal">All Products</h2>
+            <div class="contendor-productos">
+                <div class="producto">
+                    <img class="producto-imagen" src="../stock/Nattok.jpg" alt="">
+                    <div class="producto-detalle">
+                        <h3 class="producto-titulo">Natto-K</h3>
+                        <p class="producto-precio">Product code:ENZ-22090</p>
+                        <p class="producto-precio">Content:90 unid</p>
+                        <p class="producto-precio">Cost:$217.211</p>
+                        <button class="agregar-producto">Add</button>
                     </div>
                 </div>
-
-                <div class="col-sm-12 col-md-6 col-lg-3 mb-4 item-card">
-                    <div class="card h-100">
-                        <img src="../stock/360_F_281427785_gfahY8bX4VYCGo6jlfO8St38wS9cJQop.jpg" class="card-img-top"
-                            alt="Perro 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Perro</h5>
-                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure
-                                voluptatem quam facere ipsum, modi molestias. Dolorum voluptas quod expedita
-                                veritatis
-                                voluptate ad, omnis rerum est assumenda repellendus, ipsum, earum saepe?</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
+                <div class="producto">
+                    <img class="producto-imagen" src="../stock/Clininical Cardio-6.jpg" alt="">
+                    <div class="producto-detalle">
+                        <h3 class="producto-titulo">Clinical Cardio-6</h3>
+                        <p class="producto-precio">Product code:PRT-13383</p>
+                        <p class="producto-precio">Content: 90 unid</p>
+                        <p class="producto-precio">Cost:$220.211</p>
+                        <button class="agregar-producto">Add</button>
                     </div>
                 </div>
-
-                <div class="col-sm-12 col-md-6 col-lg-3 mb-4 item-card">
-                    <div class="card h-100">
-                        <img src="../stock/pexels-bruno-cervera-128817.jpg" class="card-img-top" alt="Perro 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Perro</h5>
-                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure
-                                voluptatem quam facere ipsum, modi molestias. Dolorum voluptas quod expedita
-                                veritatis
-                                voluptate ad, omnis rerum est assumenda repellendus, ipsum, earum saepe?</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
+                <div class="producto">
+                    <img class="producto-imagen" src="../stock/HeortBeat.jpg" alt="">
+                    <div class="producto-detalle">
+                        <h3 class="producto-titulo">HeartBeat</h3>
+                        <p class="producto-precio">Product code:NAP-47421</p>
+                        <p class="producto-precio">Content:90 unid</p>
+                        <p class="producto-precio">Cost:$230.345</p>
+                        <button class="agregar-producto">Add</button>
                     </div>
                 </div>
-
-                <div class="col-sm-12 col-md-6 col-lg-3 mb-4 item-card">
-                    <div class="card h-100">
-                        <img src="../stock/pexels-mali-maeder-101635.jpg" class="card-img-top" alt="Perro 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Perro</h5>
-                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure
-                                voluptatem quam facere ipsum, modi molestias. Dolorum voluptas quod expedita
-                                veritatis
-                                voluptate ad, omnis rerum est assumenda repellendus, ipsum, earum saepe?</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
+                <div class="producto">
+                    <img class="producto-imagen" src="../stock/Vesseñ Due F.jpg" alt="">
+                    <div class="producto-detalle">
+                        <h3 class="producto-titulo">Vessel Due F </h3>
+                        <p class="producto-precio">Product code:428M98SSAIV</p>
+                        <p class="producto-precio">Content:Solution 60 mg/2 mL Box With 10 Ampoules</p>
+                        <p class="producto-precio">Cost:$640.000</p>
+                        <button class="agregar-producto">Add</button>
                     </div>
                 </div>
-
-                <div class="col-sm-12 col-md-6 col-lg-3 mb-4 item-card">
-                    <div class="card h-100">
-                        <img src="../stock/istockphoto-1300036753-1024x1024.jpg" class="card-img-top" alt="Perro 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Perro</h5>
-                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure
-                                voluptatem quam facere ipsum, modi molestias. Dolorum voluptas quod expedita
-                                veritatis
-                                voluptate ad, omnis rerum est assumenda repellendus, ipsum, earum saepe?</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
+                <div class="producto">
+                    <img class="producto-imagen" src="../stock/Bolentax.jpg" alt="">
+                    <div class="producto-detalle">
+                        <h3 class="producto-titulo">Bolentax</h3>
+                        <p class="producto-precio">Product code: 7501125152870</p>
+                        <p class="producto-precio">Content: 60 mg/0.6 mL Box With 2 Prefilled Syringes</p>
+                        <p class="producto-precio">Cost: $987.970</p>
+                        <button class="agregar-producto">Add</button>
                     </div>
                 </div>
-
-                
-
+                <div class="producto">
+                    <img class="producto-imagen" src="../stock/Brineura.jpg" alt="">
+                    <div class="producto-detalle">
+                        <h3 class="producto-titulo">Brineura</h3>
+                        <p class="producto-precio">Product code:20142418-1</p>
+                        <p class="producto-precio">Content: 150mg/5ml (30mg/1ml) - Liquid/Solid - Injectable x 2 - BioMarin</p>
+                        <p class="producto-precio">Cost:$ 82.447</p>
+                        <button class="agregar-producto">Add</button>
+                    </div>
+                </div>
+                <div class="producto">
+                    <img class="producto-imagen" src="../stock/Berinert.jpg" alt="">
+                    <div class="producto-detalle">
+                        <h3 class="producto-titulo">Berinert</h3>
+                        <p class="producto-precio">Product code:20094884-1</p>
+                        <p class="producto-precio">Content: Inhibitor 500UI/1U - Liquid/Solid - Injectable x</p>
+                        <p class="producto-precio">Cost: $2.748</p>
+                        <button class="agregar-producto">Add</button>
+                    </div>
+                </div>
+                <div class="producto">
+                    <img class="producto-imagen" src="../stock/Imukin.jpg" alt="">
+                    <div class="producto-detalle">
+                        <h3 class="producto-titulo">Imukin</h3>
+                        <p class="producto-precio">Product code:211873-1</p>
+                        <p class="producto-precio">Content: Interferon Gamma 1-B 0.1mg/1U - Liquid/Solid - Injectable x 6 -</p>
+                        <p class="producto-precio">Cost: $2.748</p>
+                        <button class="agregar-producto">Add</button>
+                    </div>
+                </div>
+                <div class="producto">
+                    <img class="producto-imagen" src="../stock/Hormonious.jpg" alt="">
+                    <div class="producto-detalle">
+                        <h3 class="producto-titulo">Hormonious</h3>
+                        <p class="producto-precio">Product code: ORA-00758</p>
+                        <p class="producto-precio">Content:90 unid</p>
+                        <p class="producto-precio">Cost: $176.389</p>
+                        <button class="agregar-producto">Add</button>
+                    </div>
+                </div>
+                <div class="producto">
+                    <img class="producto-imagen" src="../stock/GHRComplex.jpg" alt="">
+                    <div class="producto-detalle">
+                        <h3 class="producto-titulo">GHR Complex</h3>
+                        <p class="producto-precio">Product code: 7083</p>
+                        <p class="producto-precio">Content: Mg 180 Cap Piping Rock</p>
+                        <p class="producto-precio">Cost: $199.900</p>
+                        <button class="agregar-producto">Add</button>
+                    </div>
+                </div>
+                <div class="producto">
+                    <img class="producto-imagen" src="../stock/NaturalVision.jpg" alt="">
+                    <div class="producto-detalle">
+                        <h3 class="producto-titulo">Natural Vision</h3>
+                        <p class="producto-precio">Product code: DRB-00311</p>
+                        <p class="producto-precio">Content: 60 unid</p>
+                        <p class="producto-precio">Cost: $71.646</p>
+                        <button class="agregar-producto">Add</button>
+                    </div>
+                </div>
+                <div class="producto">
+                    <img class="producto-imagen" src="../stock/Berinert.jpg" alt="">
+                    <div class="producto-detalle">
+                        <h3 class="producto-titulo">Eye Presure Support</h3>
+                        <p class="producto-precio">Product code: LEX-15143</p>
+                        <p class="producto-precio">Content: 30 unid</p>
+                        <p class="producto-precio">Cost: $120.126</p>
+                        <button class="agregar-producto">Add</button>
+                    </div>
+                </div>
+                <div class="producto">
+                    <img class="producto-imagen" src="../stock/Mascular Vision.jpg" alt="">
+                    <div class="producto-detalle">
+                        <h3 class="producto-titulo">Macular Vision</h3>
+                        <p class="producto-precio">Product code: NOW-03402</p>
+                        <p class="producto-precio">Content: 50 unid</p>
+                        <p class="producto-precio">Cost: $117.225</p>
+                        <button class="agregar-producto">Add</button>
+                    </div>
+                </div>
             </div>
-        </section>
-    </main>
+        </main>
+    </div>
     <!--/Main-->
 
     <!--Footer-->
@@ -176,7 +278,7 @@
                     <article>Text</article>
                     <article>Text</article>
                 </div>
-                
+
             </div>
             <section class="d-flex justify-content-end">
                 <article class="pt-4">© Yarbe 2023 - All Rights Reserved</article>
