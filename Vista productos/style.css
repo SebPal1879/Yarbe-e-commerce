@@ -46,6 +46,7 @@ aside {
     font-weight: 600;
     padding: .5rem;
     font-size: 0.85rem;
+    width: 100%;
 }
 .boton-menu.active{
     background-color: white;
@@ -86,28 +87,7 @@ aside {
 
 
 
-footer {
-    background-color: rgb(248, 248, 248);
-    border-top: 2px solid rgb(216, 216, 216);
-}
 
-footer img {
-    
-    width: 5%;
-}
-
-.footer .div {
-    display: inline-block;
-    justify-content: center;
-}
-
-.footer-info {
-    text-align: center;
-}
-
-.footer-info article {
-    padding: 4px 0px;
-}
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 4fr;
@@ -144,6 +124,8 @@ main{
 .producto-imagen{
     max-width: 100%;
     border-radius: 1rem;
+    height: 150px;
+    align-content: center;
 }
 .producto-detalle{
     background-color:#085088;
@@ -169,6 +151,12 @@ main{
     cursor: pointer;
     border: 1px solid white;
     transition: background-color .2s, color .2s;
+}
+
+.container py-4 {
+    background-color: white;
+    color: white;
+
 }
 .agregar-producto:hover{
     background-color: #1CA220;

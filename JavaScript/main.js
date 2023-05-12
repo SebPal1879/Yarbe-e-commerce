@@ -41,8 +41,8 @@ const productos = [
         id: "Hematologia01",
         titulo: "Vessel Due F ", 
         imagen: "../stock/Vesseñ Due F.jpg",
-        code:"428M98SSAIV",
-        content:"Box With 10 Ampoules",
+        code:"428M98",
+        content:"Box 10 Ampoules",
         cost:"$640.000",
         categoria: {
             name:"Hematologia",
@@ -53,8 +53,8 @@ const productos = [
         id: "Hematologia02",
         titulo: "Bolentax ", 
         imagen: "../stock/Bolentax.jpg",
-        code:"7501125152870",
-        content:"Box With 2 Prefilled",
+        code:"750112",
+        content:"Box With 2",
         cost:"$987.970",
         categoria: {
             name:"Hematologia",
@@ -66,7 +66,7 @@ const productos = [
         titulo: "Brineura", 
         imagen: "../stock/Brineura.jpg",
         code:"20142418-1",
-        content:"Injectable x 2 - BioMarin",
+        content:"Injectable x 2",
         cost:"$82.447",
         categoria: {
             name:"Oncologia",
@@ -114,7 +114,7 @@ const productos = [
         titulo: "GHR Complex", 
         imagen: "../stock/GHRComplex.jpg",
         code:"7083",
-        content:"Mg 180 Cap Piping Rock",
+        content:"Mg 180 Cap",
         cost:"$199.900",
         categoria: {
             name:"Hormonal",
