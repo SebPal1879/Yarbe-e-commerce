@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+</head>
+<body>
+
+    <div class="mi-contenedor">
+        <div class="login-left">
+            <div class="login-header">
+                <img width="250" src="../Imagenes/Logotipo.png" alt="logo">
+                <h1>Login</h1>
+            </div>
+            <form class="login-from" onsubmit="validarFormulario(event)">
+                <div class="login-form-content">
+                    
+                    <div class="form-item">
+                        <label for="email">Email</label>
+                        <input formControlName="email" type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="" required>
+                    </div>
+                    <div class="form-item">
+                        <label for="password">Password</label>
+                        <input formControlName="password" type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" required>
+                    </div>
+
+                    <button class="Continue" type="submit">Sign in</button>
+                </div>
+                <div class="login-form-footer">                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Registro/index.html">You do not have an account? Sign up.</a>
+                    </li>
+                </div>
+            </form>
+
+        </div>
+        <div class="login-right">
+            
+        </div>
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

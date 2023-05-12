@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="42.0" height="42.0" viewBox="1862.0 12.0 42.0 42.0" preserveAspectRatio="none">
+  <g>
+    <text text-anchor="middle" x="1883.0" y="37.7548828125" font-family="Bodoni MT" font-weight="400" font-style="normal" font-size="19.0" fill="#333333" id="s-Paragraph_1-cd3cb">
+      <tspan font-family="Bodoni MT" font-weight="400" font-style="normal" font-size="19.0" fill="#333333" dy="0.0" x="1883.0">M</tspan>
+    </text>
+  </g>
+  <g>
+    <defs>
+      <ellipse cx="1883.0" cy="33.0" rx="21.0" ry="21.0" id="s-Ellipse_1-cd3cb-path"></ellipse>
+    </defs>
+    <g style="mix-blend-mode:normal">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#s-Ellipse_1-cd3cb-path" fill="#38D688" fill-opacity="1.0"></use>
+    </g>
+  </g>
+</svg>
