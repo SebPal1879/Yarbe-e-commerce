@@ -11,12 +11,12 @@ function validarFormulario(event) {
         // Buscar una coincidencia exacta del correo y contraseña en los datos
         var found = data.find(item => item.correo === email && item.contrasena === password);
   
-        if (found) {
+        if (found ) {
 
           window.location.href = "../Vista productos/index.html";
-          alert("El email y la contraseña ingresados son correctos.");
+          
         } else {
-          alert("El email o la contraseña ingresados son incorrectos.");
+          alert("Email or password are incorrect.");
         }
       });
   }
