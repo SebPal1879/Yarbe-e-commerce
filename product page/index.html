@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre del producto - Tienda en línea</title>
+    <!-- Enlaces a los archivos de estilos -->
+    <link rel="stylesheet" href="./style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Encabezado de la página -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Categorías</a></li>
+                <li><a href="#">Mi cuenta</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Contenido principal de la página -->
+    <main>
+        <!-- Sección de imagen del producto -->
+        <div class="d-flex justify-content-around">
+            <div class="container">
+                <h1>Product name</h1>
+                <div class="row align-items-center">
+                    <section class="col-9 justify-content-center product-pic">
+                        <img src="../stock/Bolentax.jpg" alt="Nombre del producto">
+                    </section>
+                    <section class="product-details col-3 py-2">
+                        <div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat laudantium voluptatum,
+                                reprehenderit, consectetur neque nisi ratione nihil illum ullam iusto dicta! Deserunt
+                                earum adipisci doloremque enim nam labore dolorum autem!
+                                Asperiores dicta unde enim vero officiis cum impedit neque voluptatibus, numquam, iure
+                                possimus incidunt nesciunt cupiditate distinctio libero itaque amet qui, perspiciatis
+                                natus ipsam magnam laboriosam illum tenetur voluptatum! Et.</p>
+
+                            <div class="info d-flex justify-content-between">
+                                <p><strong>Price:</strong></p>
+                                <p>$20.05</p>
+                            </div>
+
+
+                            <div class="info ">
+                                
+
+                                <div class="d-flex justify-content-between">
+                                    <strong>Units in stock:</strong>
+                                    <p>20</p>
+                                </div>
+
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Select units to purchase
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">1</a></li>
+                                        <li><a class="dropdown-item" href="#">2</a></li>
+                                        <li><a class="dropdown-item" href="#">3</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="pmt-met">
+                                <article>
+                                    <h5>Payment methods available:</h5>
+                                </article>
+
+                                <div>
+                                    <img src="../payments/Mastercard-logo.svg.png" alt="">
+                                    <img src="../payments/Visa_Inc._logo.svg.png" alt="">
+                                </div>
+                            </div>
+
+                            <div class="btns">
+                                <button class="button">Add to cart</button>
+                                <h6>or</h6>
+                                <button class="button">Buy now</button>
+                            </div>
+
+
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+            <!-- Sección de detalles del producto -->
+
+        </div>
+
+        <!-- Sección de reseñas del producto -->
+        <section class="product-reviews">
+            <h2>Reseñas de clientes</h2>
+            <div class="review">
+                <p class="author">Nombre del autor</p>
+                <p class="date">Fecha de la reseña</p>
+                <div class="rating">
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                </div>
+                <p class="text">Texto de la reseña</p>
+            </div>
+            <!-- Más reseñas aquí -->
+        </section>
+        <!-- Sección de preguntas frecuentes sobre el producto -->
+        <section class="product-questions">
+            <h2>Preguntas frecuentes</h2>
+            <div class="question">
+                <p class="question-title">Título de la pregunta</p>
+                <p class="question-text">Respuesta de la pregunta</p>
+            </div>
+            <!-- Más preguntas aquí -->
+        </section>
+        <!-- Sección de productos relacionados -->
+        <section class="related-products">
+            <h2>Productos relacionados</h2>
+            <div class="product">
+                <a href="#">
+                    <img src="ruta-de-la-imagen-del-producto-relacionado.jpg" alt="Nombre del producto relacionado">
+                    <p>Nombre del producto relacionado</p>
+                    <p class="price">$XX.XX</p>
+                </a>
+            </div>
+            <!-- Más productos aquí -->
+        </section>
+    </main>
+    <!-- Pie de página de la página -->
+    <footer>
+        <p>Derechos reservados - Tienda en línea</p>
+    </footer>
+    <!-- Enlaces a los archivos de scripts -->
+    <script src="scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
