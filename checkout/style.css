@@ -1,0 +1,34 @@
+/* Cart items and stored items */
+.cart-items h1{
+    padding-bottom: 2rem;
+    border-bottom: 1px solid gray;
+}
+
+.item-pic {
+    padding: 0;
+}
+
+.cart-items_stored {
+    padding: 2rem 0;
+    border-bottom: 1px solid rgb(172, 172, 172);
+}
+
+.cart-items_stored img {
+    padding: 0 1rem;
+    width: 90%;
+}
+
+.cart-items {
+    text-align: center;
+    align-items: center;
+}
+
+.cart-info {
+    border-top: 1px solid rgb(172, 172, 172);     
+    border-bottom: 1px solid rgb(172, 172, 172);     
+    padding-top: 8px;
+}
+
+.stored {
+    align-items: center;
+}
