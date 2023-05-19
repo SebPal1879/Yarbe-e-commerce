@@ -1,4 +1,7 @@
 /* Cart items and stored items */
+main {
+    margin-bottom: 2rem;
+}
 .cart-items h1{
     padding-bottom: 2rem;
     border-bottom: 1px solid gray;
@@ -8,6 +11,10 @@
     padding: 0;
 }
 
+.cart-buttons button{
+    margin-left: 1rem;
+}
+
 .cart-items_stored {
     padding: 2rem 0;
     border-bottom: 1px solid rgb(172, 172, 172);
@@ -15,7 +22,7 @@
 
 .cart-items_stored img {
     padding: 0 1rem;
-    width: 90%;
+    width: 60%;
 }
 
 .cart-items {
@@ -23,10 +30,24 @@
     align-items: center;
 }
 
+.cart-item_delete img{
+    padding: 0;
+    width: 1.8rem;
+}
+
 .cart-info {
     border-top: 1px solid rgb(172, 172, 172);     
     border-bottom: 1px solid rgb(172, 172, 172);     
     padding-top: 8px;
+}
+
+.cart-title {
+    padding-bottom: 0.6rem;
+    text-align: center;
+}
+
+.cart-items_units {
+    width: 2rem;
 }
 
 .stored {
