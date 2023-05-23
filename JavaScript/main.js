@@ -163,6 +163,8 @@ const productos = [
 const contenerProductos = document.querySelector("#contendor-productos");
 const botonCategorias = document.querySelectorAll(".boton-categoria");
 const tituloPrincipal = document.querySelector("#titulo-principal");
+let btnsAddToCart = document.querySelectorAll(".agregar-producto");
+const AtotalCartItems = document.querySelector("#cart-items");
 
 function cargarProducto (productoselegidos){
 
@@ -184,7 +186,8 @@ function cargarProducto (productoselegidos){
 
                     contenerProductos.append(div);        
     })
-
+    updateAddBtns() 
+    console.log(btnsAddToCart);
 }
 
 cargarProducto(productos);
@@ -206,4 +209,66 @@ botonCategorias.forEach(boton => {
         
     
     })
-})
+});  
+
+// let selectedProduct = document.querySelectorAll('.producto-imagen').forEach(elem => elem.addEventListener("click",
+// () => {
+//     console.log("Buenas tardunas");
+//    document.querySelector(".bg-modal").style.display = "flex";
+//  })); 
+
+
+function updateAddBtns() {
+    btnsAddToCart = document.querySelectorAll(".agregar-producto"); 
+
+    btnsAddToCart.forEach(button =>{
+        button.addEventListener("click", addToCart);
+    });
+}
+
+const cartProducts = [];
+
+function addToCart(e) {
+    console.log("Buenas tardes");
+
+    const uid = e.currentTarget.id;
+    const addedProduct = productos.find(producto => producto.id === uid);
+
+    if (cartProducts.some(producto => producto.id === uid)) {
+        const index = cartProducts.findIndex(producto => producto.id === uid);
+        cartProducts[index].cantidad++;
+    } else {
+        addedProduct.cantidad = 1;
+        cartProducts.push(addedProduct);
+    }
+    console.log(cartProducts);
+    updateTotalCartItems();
+
+    localStorage.setItem("items-in-cart", JSON.stringify(cartProducts))
+}
+
+function updateTotalCartItems() {
+    let totalCartItems = cartProducts.reduce((i, producto) => i + producto.cantidad, 0);
+    console.log(totalCartItems);
+    AtotalCartItems.innerText = totalCartItems;
+}
+
+// .onclick = function(){
+//     console.log("AAAAAASSS");
+// };
+
+// selectedProduct.onclick = () => {
+//     console.log("AAAAAASSS");
+// }
+
+
+// selectedProduct.addEventListener('click', selectedImage);
+// function selectedImage(e) {
+//     console.log("Buenas tardes");
+//     console.log(this.code);
+//     const productToDisplay = productos.find(function(product){
+//         return product;
+//     });
+//     console.log(productToDisplay);
+//     console.log(productToDisplay.code);
+// }

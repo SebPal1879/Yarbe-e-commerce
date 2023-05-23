@@ -1,3 +1,4 @@
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
@@ -29,20 +30,42 @@ body {
   
   /* Contenido principal */
   main {
-    margin: 20px;
+    padding-top:20px;
+    background: #085088;
+  }
+
+  .title {
+    justify-content: center;
+  }
+
+  .title h1 {
+    margin: 0;
+  }
+
+  .product-info {
+    border-radius: 2rem;
+    background-color: white;
+    padding: 20px 40px !important;
   }
 
   .product-image img {
     max-width: 50vw;
   }
 
+  .product-details {
+    border: 1px solid gray;
+    border-radius: 0.8rem;
+  }
+
   .product-details h1 {
     font-size: 24px;
     margin: 0 0 10px;
   }
+  
   .product-details p {
     margin: 0 0 10px;
   }
+
   .product-details strong {
     font-weight: bold;
   }
@@ -50,40 +73,6 @@ body {
   .product-details img{
     width: 50px;
   }
-
-
-  
-  /* Reseñas */
-  .product-reviews h2 {
-    font-size: 24px;
-    margin: 20px 0 10px;
-  }
-  .review {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    padding: 10px;
-  }
-  .author {
-    font-weight: bold;
-    margin: 0 0 5px;
-  }
-  .date {
-    color: #666;
-    font-size: 14px;
-    margin: 0 0 5px;
-  }
-  .rating {
-    margin-bottom: 5px;
-  }
-  .star {
-    color: #f90;
-    font-size: 18px;
-  }
-  .text {
-    margin: 0;
-  }
-  
   /* Preguntas frecuentes */
   .product-questions h2 {
     font-size: 24px;
@@ -99,25 +88,7 @@ body {
   .question-text {
     margin: 0;
   }
-  
-  /* Productos relacionados */
-  .related-products h2 {
-    font-size: 24px;
-    margin: 20px 0 10px;
-  }
-  .product {
-    margin: 0 10px 10px 0;
-    width: calc(25% - 10px);
-  }
-  .product img {
-    max-width: 100%;
-  }
-  .product p {
-    margin: 0;
-  }
-  .product .price {
-    font-weight: bold;
-  }
+
   
   /* Bloque pagos */
   .button {
@@ -147,6 +118,14 @@ body {
     color: #666;
   }
 
+  #su { /* stock units */
+    background-color: #085088;
+    color: white;
+  }
+
+  #su:hover {
+    background-color: #0f8be9;
+  }
 
   .p-item {
     display: inline-flex;
@@ -158,11 +137,7 @@ body {
     margin-left: 5%;
   }
 
-  .product-details {
-    border: 1px solid gray;
-  }
-
-  .pmt-met {
+  .pmt-met { /*Payment method*/
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
     padding: 0.6rem 0;
