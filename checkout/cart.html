@@ -29,8 +29,8 @@
             <h1>My cart</h1>
         </div>
 
-        <div id="empty-cart">
-            <p>Cart is empty</p>
+        <div id="empty-cart" class="pt-4 px-4">
+            <p>Cart is empty.</p>
         </div>
 
         <section class="cart-items disabled" id="filled-cart">
@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            <div class="cart-items_stored d-inline-flex">
+            <!-- <div class="cart-items_stored d-inline-flex">
                 <div class="stored d-inline-flex">
                     <div class="cart-item_delete col-1">
                         <img src="../icons/4115238_delete_trash_icon.svg" alt="">
@@ -86,7 +86,7 @@
                         <h4>Total: $10.000</h4>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- <div class="cart-items_stored d-inline-flex">
                 <div class="stored d-inline-flex">
@@ -150,9 +150,9 @@
         </section>
         <div class="disabled" id="payment-buttons">
             <div class="mt-4 cart-buttons d-flex justify-content-end ">
-            <button type="button" class="btn btn-danger">Clear cart</button>
+            <button type="button" class="btn btn-danger" id="clear-cart">Clear cart</button>
 
-            <button type="button" class="btn btn-success">Go to payment</button>
+            <button type="button" class="btn btn-success" id="proceed-checkout">Go to payment</button>
         </div>
         </div>
         

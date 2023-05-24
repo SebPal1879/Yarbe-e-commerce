@@ -7,7 +7,7 @@ const productos = [
         imagen: "../stock/Nattok.jpg",
         code:"ENZ-22090",
         content:"90 unid",
-        cost:"$217.211",
+        cost:217.211,
         categoria: {
             name:"Cardiovascular",
             id:"Cardiovascular"
@@ -19,7 +19,7 @@ const productos = [
         imagen: "../stock/Clininical Cardio-6.jpg",
         code:"PRT-13383",
         content:"90 unid",
-        cost:"$220.211",
+        cost:220.211,
         categoria: {
             name:"Cardiovascular",
             id:"Cardiovascular"
@@ -31,7 +31,7 @@ const productos = [
         imagen: "../stock/HeortBeat.jpg",
         code:"NAP-47421",
         content:"90 unid",
-        cost:"$230.345",
+        cost:230.345,
         categoria: {
             name:"Cardiovascular",
             id:"Cardiovascular"
@@ -43,7 +43,7 @@ const productos = [
         imagen: "../stock/Vesseñ Due F.jpg",
         code:"428M98",
         content:"Box 10 Ampoules",
-        cost:"$640.000",
+        cost:640.000,
         categoria: {
             name:"Hematologia",
             id:"Hematoloia"
@@ -55,7 +55,7 @@ const productos = [
         imagen: "../stock/Bolentax.jpg",
         code:"750112",
         content:"Box With 2",
-        cost:"$987.970",
+        cost:987.970,
         categoria: {
             name:"Hematologia",
             id:"Hematologia"
@@ -67,7 +67,7 @@ const productos = [
         imagen: "../stock/Brineura.jpg",
         code:"20142418-1",
         content:"Injectable x 2",
-        cost:"$82.447",
+        cost:82.447,
         categoria: {
             name:"Oncologia",
             id:"Oncologia"
@@ -79,7 +79,7 @@ const productos = [
         imagen: "../stock/Berinert.jpg",
         code:"20094884-1",
         content:"Inhibitor 500UI/1U",
-        cost:"$$2.748",
+        cost:2.748,
         categoria: {
             name:"Oncologia",
             id:"Oncologia"
@@ -91,7 +91,7 @@ const productos = [
         imagen: "../stock/Imukin.jpg",
         code:"211873-1",
         content:"Injectable x 6",
-        cost:"$2.748",
+        cost:2.748,
         categoria: {
             name:"Oncologia",
             id:"Oncologia"
@@ -103,7 +103,7 @@ const productos = [
         imagen: "../stock/Hormonious.jpg",
         code:"ENZ-22090",
         content:"ORA-00758",
-        cost:"$176.389",
+        cost:176.389,
         categoria: {
             name:"Hormonal",
             id:"Hormonal"
@@ -115,7 +115,7 @@ const productos = [
         imagen: "../stock/GHRComplex.jpg",
         code:"7083",
         content:"Mg 180 Cap",
-        cost:"$199.900",
+        cost:199.900,
         categoria: {
             name:"Hormonal",
             id:"Hormonal"
@@ -127,7 +127,7 @@ const productos = [
         imagen: "../stock/NaturalVision.jpg",
         code:"DRB-00311",
         content:"60 unid",
-        cost:"$71.646",
+        cost:71.646,
         categoria: {
             name:"Eye",
             id:"Eye"
@@ -139,7 +139,7 @@ const productos = [
         imagen: "../stock/Eye Pressure Support.jpg",
         code:"LEX-15143",
         content:"30 unid",
-        cost:"$120.126",
+        cost:120.126,
         categoria: {
             name:"Eye",
             id:"Eye"
@@ -151,7 +151,7 @@ const productos = [
         imagen: "../stock/Mascular Vision.jpg",
         code:"NOW-03402",
         content:"90 unid",
-        cost:"$117.225",
+        cost:117.225,
         categoria: {
             name:"Eye",
             id:"Eye"
@@ -226,7 +226,16 @@ function updateAddBtns() {
     });
 }
 
-const cartProducts = [];
+let cartProducts;
+
+const cartProductsLS = JSON.parse(localStorage.getItem("items-in-cart"));
+
+if (cartProductsLS) {
+    cartProducts = cartProductsLS;
+    updateTotalCartItems();
+} else {
+    cartProducts = [];
+}
 
 function addToCart(e) {
     console.log("Buenas tardes");
@@ -241,7 +250,7 @@ function addToCart(e) {
         addedProduct.cantidad = 1;
         cartProducts.push(addedProduct);
     }
-    console.log(cartProducts);
+
     updateTotalCartItems();
 
     localStorage.setItem("items-in-cart", JSON.stringify(cartProducts))
@@ -249,7 +258,6 @@ function addToCart(e) {
 
 function updateTotalCartItems() {
     let totalCartItems = cartProducts.reduce((i, producto) => i + producto.cantidad, 0);
-    console.log(totalCartItems);
     AtotalCartItems.innerText = totalCartItems;
 }
 
