@@ -4,7 +4,7 @@ $nombre = isset($_POST['username']) ? $_POST['username'] : '';
 $id = isset($_POST['userID']) ? $_POST['userID'] : '';
 $correo = isset($_POST['email']) ? $_POST['email'] : '';
 $contrasena = isset($_POST['password']) ? $_POST['password'] : '';
-$id_rol = isset($_POST['rol']) ? $_POST['rol'] : '';
+$id_rol = 2;
 
 try {
 

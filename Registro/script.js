@@ -24,7 +24,7 @@ document.getElementById('formulario').addEventListener('submit', function(event)
                 document.getElementById('email').value = '';
                 document.getElementById('password').value = '';
                 document.getElementById('confirm-password').value = '';
-                document.getElementById('rol').value = '';
+                
                 alert('The user was inserted successfully.');
                 window.location.href = "../Login/index.html";
             } else {
