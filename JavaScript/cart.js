@@ -1,11 +1,15 @@
-let storedCartItems = JSON.parse(localStorage.getItem("items-in-cart"));
+let storedCartItems = localStorage.getItem("items-in-cart");
+storedCartItems = JSON.parse(storedCartItems);    
+
 const cartEmpty = document.querySelector("#empty-cart");
 const cartFilled = document.querySelector("#filled-cart");
 const buttons = document.querySelector("#payment-buttons");
 let deleteButtons = document.querySelectorAll(".cart-item_delete");
 
 function loadCartProducts() {
-    if (storedCartItems) {
+    if (storedCartItems && storedCartItems.length > 0) {
+
+            
         cartEmpty.classList.add("disabled");
         buttons.classList.remove("disabled");
         cartFilled.classList.remove("disabled");
@@ -73,9 +77,9 @@ function updateDelBtns() {
 
 function deleteFromCart(e) {
     const idbt = e.currentTarget.id;
-    const index = storedCartItems.find(producto => producto.code === idbt);
-    // const index = storedCartItems.findIndex(producto => producto.code === idbt);
-    console.log(storedCartItems);
+    const index = storedCartItems.findIndex(producto => producto.code === idbt);
     storedCartItems.splice(index, 1);
-    console.log(storedCartItems);
+    loadCartProducts();
+
+    localStorage.setItem("items-in-cart",JSON.stringify(storedCartItems));
 }
