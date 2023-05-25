@@ -20,7 +20,7 @@ function validarFormulario(event) {
           
         } else if (admin){
 
-          window.location.href = "../Vista productos/prueba.html";
+          window.location.href = "../Adminsitrador/index.php";
 
         } else {
 
