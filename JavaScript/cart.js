@@ -1,15 +1,18 @@
 let storedCartItems = localStorage.getItem("items-in-cart");
-storedCartItems = JSON.parse(storedCartItems);    
+storedCartItems = JSON.parse(storedCartItems);
 
 const cartEmpty = document.querySelector("#empty-cart");
 const cartFilled = document.querySelector("#filled-cart");
 const buttons = document.querySelector("#payment-buttons");
 let deleteButtons = document.querySelectorAll(".cart-item_delete");
+const clearCart = document.querySelector("#clear-cart");
+const total = document.querySelector("#total");
+
 
 function loadCartProducts() {
     if (storedCartItems && storedCartItems.length > 0) {
 
-            
+
         cartEmpty.classList.add("disabled");
         buttons.classList.remove("disabled");
         cartFilled.classList.remove("disabled");
@@ -60,7 +63,7 @@ function loadCartProducts() {
     }
 
     updateDelBtns();
-
+    updateTotal();
 }
 
 
@@ -81,5 +84,18 @@ function deleteFromCart(e) {
     storedCartItems.splice(index, 1);
     loadCartProducts();
 
-    localStorage.setItem("items-in-cart",JSON.stringify(storedCartItems));
+    localStorage.setItem("items-in-cart", JSON.stringify(storedCartItems));
+}
+
+clearCart.addEventListener("click", voidCart)
+
+function voidCart() {
+    storedCartItems.length = 0;
+    localStorage.setItem("items-in-cart", JSON.stringify(storedCartItems));
+    loadCartProducts();
+}
+
+function updateTotal() {
+    const totalCalc = storedCartItems.reduce((i, producto) => i + (producto.cost * producto.cantidad), 0);
+    total.innerText = `${totalCalc}`;
 }
