@@ -17,10 +17,12 @@ function validarFormulario(event) {
         if (cliente) {
 
           window.location.href = "../Vista productos/index.html";
+          localStorage.clear();
           
         } else if (admin){
 
           window.location.href = "../Adminsitrador/index.php";
+          localStorage.clear();
 
         } else {
 
