@@ -13,10 +13,8 @@ try {
     while($item = $res->fetch(PDO::FETCH_OBJ)) {
 
         $data[] = [
-
             'correo' => $item->correo,
             'contrasena' => $item->contrasena,
-            'id_rol' => $item->id_rol, 
             
         ];
 
