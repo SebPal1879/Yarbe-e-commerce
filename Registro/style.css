@@ -1,0 +1,129 @@
+
+*{
+    box-sizing: border-box;
+    font-family: "Bodoni MT";
+    font-size: 18px;
+}
+
+
+
+
+  .cotainer {
+
+    min-height: calc(100vh - 40px * 2);
+    display: grid; 
+    grid-template-columns: 50% 50%;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px #3030303f;
+    margin: 40px;
+
+  }
+
+  .login-right{
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: content;
+    padding-left: 120px;
+    padding-right: 120px;
+    background-color: white;
+  }
+
+  .login-left{
+    grid-column: 1 / 2;
+    background: linear-gradient(135deg, #5486f3, #310661);
+    display: flex;
+    justify-content: center;
+    margin-top: -80px;
+  }
+
+
+  .login-header{
+    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-left: -50px;
+    
+  }
+  .login-header.h1{
+        font-size: 60px;
+        margin-bottom: 20px;
+        margin-left: 300px;
+  }
+
+  .loginForm{
+
+        width: 450px;
+
+        &-content {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        &-footer{
+            display: flex;
+            gap: 30px;
+            margin-top: 70px;
+        }
+  }
+
+  .form-item label:not(.checkbocLabel){
+    display: inline-block;
+    
+  }
+
+  .form-control{
+    background-color: #F1F6F9;
+    border: none;
+    height: 55px;
+    padding: 0 2rem;
+    width: 100%;
+    outline: none;
+    transition: background .5s;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    
+  }
+
+  .btn-primary{
+    border: none;
+    background: #0D5FBD;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    height: 55px;
+    margin: 20px;
+    margin-bottom: 40px;
+  }
+
+
+  .login-form-footer.h1{
+    
+    margin-top: 160px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-left: -90px;
+    color: #0D5FBD;
+    
+  }
+
+  .nav-link {
+
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    font-size: 30px;
+    font-family: none;
+    color: black;
+    cursor: pointer;
+  }
+
+  .error-message{
+    color: red;
+  }
+  
