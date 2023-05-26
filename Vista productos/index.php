@@ -1,3 +1,8 @@
+<?php
+require_once "../Adminsitrador/conexion.php";
+$conexion = conexion();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +14,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="librerias/jquery-3.2.1.min.js"></script>
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script src="funciones.js"></script>
+    <script src="librerias/bootstrap/js/bootstrap.js"></script>
+    <script src="librerias/alertifyjs/alertify.js"></script>
+    <script src="librerias/select2/js/select2.js"></script>
 </head>
 
 <body>
@@ -105,6 +118,10 @@
                 </ul>
             </nav>
             <!--Footer-->
+<<<<<<< HEAD:Vista productos/index.html
+=======
+
+>>>>>>> 4a8d3e1cb6b51ecaaa1ea3552440d1e0806d88c1:Vista productos/index.php
             <footer>
                 <div class="container">
                     <img src="../pictures/Logotipo.png" alt="" style="width: 100px;">
@@ -113,13 +130,17 @@
 
             </footer>
             <!--/Footer-->
+<<<<<<< HEAD:Vista productos/index.html
+=======
+
+>>>>>>> 4a8d3e1cb6b51ecaaa1ea3552440d1e0806d88c1:Vista productos/index.php
 
             
         </aside>
         <main>
             <h2 id="titulo-principal" class="titulo-principal">All Products</h2>
-            <div id="contendor-productos" class="contendor-productos">
-                <!--Esto se va llenar con JS-->
+            <div id="contendor-productos1" class="contendor-productos">
+
             </div>
         </main>
     </div>
@@ -133,3 +154,10 @@
 </body>
 
 </html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+            $('#contendor-productos1').load('main2.php');
+        
+    });
+</script>

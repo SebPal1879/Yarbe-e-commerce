@@ -8,7 +8,7 @@
 
 
 
-.cotainer {
+  .cotainer {
 
     min-height: calc(100vh - 40px * 2);
     display: grid; 
@@ -121,5 +121,9 @@
     font-family: none;
     color: black;
     cursor: pointer;
+  }
+
+  .error-message{
+    color: red;
   }
   
