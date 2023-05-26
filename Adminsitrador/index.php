@@ -1,9 +1,9 @@
-<?php 
-	session_start();
-	require_once "php/conexion.php";
-	$conexion=conexion();
+<?php
+session_start();
+require_once "php/conexion.php";
+$conexion = conexion();
 
- ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,12 +17,19 @@
     <link rel="stylesheet" href="./style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Tabla dinamica</title>
-    <link rel="stylesheet" type="text/css" href="librerias/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="librerias/alertifyjs/css/alertify.css">
-    <link rel="stylesheet" type="text/css" href="librerias/alertifyjs/css/themes/default.css">
-    <link rel="stylesheet" type="text/css" href="librerias/select2/css/select2.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/themes/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/alertify.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/themes/default.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/select2.css">
+    <link rel="stylesheet" type="text/css" href="lib/select2/css/select2.css">
+    <link rel="stylesheet" type="text/css" href="lib/alertify.js">
+    <link rel="stylesheet" type="text/css" href="lib/alertify.min.js">
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="librerias/jquery-3.2.1.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
     <!-- JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="js/funciones.js"></script>
@@ -40,31 +47,9 @@
                         height="50px"></a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
+
+
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </nav>
@@ -120,9 +105,9 @@
                             <h5 class="modal-title" id="exampleModalLabel">Add New Category</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">    
-                        <label>Name</label>
-                        <input type="text" id="namec1" class="from-control input-sm">
+                        <div class="modal-body">
+                            <label>Name</label>
+                            <input type="text" id="namec1" class="from-control input-sm">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="guradarnuevoc">
@@ -142,12 +127,134 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                        <input type="text" hidden="" id="idca" name="">
-                        <label>Name</label>
-                        <input type="text" id="namece" class="from-control input-sm">
+                            <input type="text" hidden="" id="idca" name="">
+                            <label>Name</label>
+                            <input type="text" id="namece" class="from-control input-sm">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal" id="actualizardatosc">Update</button>
+                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal"
+                                id="actualizardatosc">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container pt-5">
+                <div id="tabla1"></div>
+            </div>
+            <!-- Modal registros nuevos Metodos Pagos -->
+            <div class="modal fade" id="modalNuevom" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add New Payment Method<button type="button"
+                                    class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <label>Name</label>
+                            <input type="text" id="namem1" class="from-control input-sm">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="guradarnuevom">
+                                Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Editar Metodo Pago -->
+            <div class="modal fade" id="modalEditarm" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Payment Method</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" hidden="" id="idma" name="">
+                            <label>Name</label>
+                            <input type="text" id="nameme" class="from-control input-sm">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal"
+                                id="actualizardatosm">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container pt-5">
+                <div id="tabla2"></div>
+            </div>
+
+            <!-- Modal para registros nuevo Producto-->
+            <div class="modal fade" id="modalNuevop" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add New Products</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <label>Id</label>
+                            <input type="text" id="idp3" name="idp" class="form-control input-sm">
+                            <label>Title</label>
+                            <input type="text" id="titlep3" name="titlep" class="form-control input-sm">
+                            <label id="fichero"for="imagep3">Image</label>
+                            <input type='file' id='imagep3' name="file" class="form-control input-sm" accept=".jpg, .jpeg, .png">
+                            <label>Code</label>
+                            <input type="text" id="codep3" name="codep" class="form-control input-sm">
+                            <label>Content</label>
+                            <input type="text" id="contentp3" name="contentp" class="form-control input-sm">
+                            <label>Cost</label>
+                            <input type="number" id="costp3" name="costp" class="form-control input-sm">
+                            <label>Name Category</label>
+                            <input type="text" id="namep3" name="namep" class="form-control input-sm">
+                            <label>Payment method</label>
+                            <input type="text" id="paymentp3" name="paymentp" class="form-control input-sm">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                                id="guardarnuevop">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal para registros de editar Producto -->
+            <div class="modal fade" id="modalEditp" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" hidden="" id="idpa" name="">
+                            <label>Id</label>
+                            <input type="text" id="idp" name="idp" class="form-control input-sm">
+                            <label>Title</label>
+                            <input type="text" id="titlep" name="titlep" class="form-control input-sm">
+                            <label for="imagep">Image</label>
+                            <input type="file" id="imagep" name="imagep" class="form-control input-sm">
+                            <label>Code</label>
+                            <input type="text" id="codep" name="codep" class="form-control input-sm">
+                            <label>Content</label>
+                            <input type="text" id="contentp" name="contentp" class="form-control input-sm">
+                            <label>Cost</label>
+                            <input type="number" id="costp" name="costp" class="form-control input-sm">
+                            <label>Name Category</label>
+                            <input type="text" id="namep" name="namep" class="form-control input-sm">
+                            <label>Payment method</label>
+                            <input type="text" id="paymentp" name="paymentp" class="form-control input-sm">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal"
+                                id="actualizardatosp">Update</button>
                         </div>
                     </div>
                 </div>
@@ -176,12 +283,12 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#tabla1').load('tablap.php');
+        $('#tabla1').load('componentes/tablam.php');
     });
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#tabla2').load('tablam.php');
+        $('#tabla2').load('componentes/tablap.php');
     });
 </script>
 
@@ -199,13 +306,12 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#guardarnuevom').click(function () {
-            id = $('#idm3').val();
-            name = $('#namem3').val();
-            agregarMetodop(id, name);
+        $('#guradarnuevom').click(function () {
+            name = $('#namem1').val();
+            agregarMetodop(name);
         });
         $('#actualizardatosm').click(function () {
-            actualizaDatosm();
+            actualizarDatosm();
         });
 
     });
@@ -214,15 +320,15 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#guardarnuevop').click(function () {
-            idp = $('idp3').val();
-            titlep = $('titlep3').val();
-            imagep = $('imagep3').val();
-            codep = $('codep3').val();
-            contentp = $('contentp3').val();
-            costp = $('costp3').val();
-            namep = $('namep3').val();
-            paymentp = $('paymentp3').val();
-            agregarProducto(idp, titlep, imagep, codep, contentp, costp, namep, paymentp);
+            id = $('idp3').val();
+            title = $('titlep3').val();
+            image1 = $('imagep3').val();
+            code = $('codep3').val();
+            content = $('contentp3').val();
+            cost = $('costp3').val();
+            name = $('namep3').val();
+            payment = $('paymentp3').val();
+            agregarProductos(id, title, image1, code, content, cost, name, payment);
         });
     });
 </script>
