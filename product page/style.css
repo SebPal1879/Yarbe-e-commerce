@@ -133,8 +133,8 @@ body {
   }
 
   .product-pic img{
-    width: 90%; 
     margin-left: 5%;
+    max-width: 600px;
   }
 
   .pmt-met { /*Payment method*/
