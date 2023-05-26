@@ -111,10 +111,17 @@ $conexion = conexion();
                                 <path
                                     d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
                             </svg> Eye Conditions</button></li>
+                            <a href="../checkout/cart.html" style="text-decoration: none;"><li><button class="boton-menu boton-carrito" id="Eye"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                              </svg>Cart: <span id="cart-items">0</span></button></li></a>
+                            
                 </ul>
             </nav>
             <!--Footer-->
+<<<<<<< HEAD:Vista productos/index.html
+=======
 
+>>>>>>> 4a8d3e1cb6b51ecaaa1ea3552440d1e0806d88c1:Vista productos/index.php
             <footer>
                 <div class="container">
                     <img src="../pictures/Logotipo.png" alt="" style="width: 100px;">
@@ -123,8 +130,12 @@ $conexion = conexion();
 
             </footer>
             <!--/Footer-->
+<<<<<<< HEAD:Vista productos/index.html
+=======
 
+>>>>>>> 4a8d3e1cb6b51ecaaa1ea3552440d1e0806d88c1:Vista productos/index.php
 
+            
         </aside>
         <main>
             <h2 id="titulo-principal" class="titulo-principal">All Products</h2>
