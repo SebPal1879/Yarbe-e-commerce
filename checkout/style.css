@@ -99,10 +99,44 @@ body {
 
 .cart-items_units .dropdown-menu {
     width: 2rem;
-
 }
 
 .stored {
     align-items: center;
     height: 200px;
+}
+
+/*Checkout stored items*/
+.stored-item_box {
+    margin-left: 2rem;
+    border-radius: 1rem;
+    border: 1px solid gray;
+}
+
+#last {
+    border-bottom: none;
+    
+}
+
+.stored-item_buy {
+    border-bottom: 1px solid gray;
+    align-items: center;
+    min-height: 20vh;
+}
+
+.stored-item_buy {
+    padding: 0;
+}
+
+.stored-item_box {
+    min-width: 30vw;
+}
+
+.details {
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+}
+
+.title {
+    margin-left: 2rem;
 }

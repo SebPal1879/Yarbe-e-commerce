@@ -226,7 +226,6 @@ function updateAddBtns() {
 let cartProducts;
 let cartProductsLS = localStorage.getItem("items-in-cart");
 console.log(cartProductsLS);
-console.log("BueXnas tardes");
 
 if (cartProductsLS) {
     cartProducts = JSON.parse(cartProductsLS);
@@ -263,7 +262,6 @@ function viewProducts() {
 
     viewProduct.forEach(button => {
         button.addEventListener("click", productInfo);
-        console.log("AAA");
     });
 }
 
