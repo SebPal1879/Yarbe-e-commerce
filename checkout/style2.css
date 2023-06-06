@@ -1,0 +1,61 @@
+.item-pic img {
+    display: block;
+    max-width: 230px;
+    max-height: 95px;
+    width: auto;
+    height: auto;
+}
+
+
+
+/* .pi-title {
+    margin-top: 1rem;
+    margin-left: 2rem;
+} */
+
+.items-title {
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    text-align: center;
+    background-color: whitesmoke;
+    padding: 0.3rem 0;
+    display: block !important;
+}
+
+.input-group {
+    width: 100% !important;
+}
+
+.item-list img {
+    padding: 0 1rem;
+    max-height: 110px;
+}
+
+.inputuna {
+    width: 50% !important;
+}
+
+.tiny {
+    width: 10rem !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#bank-btn {
+    border: 1px solid rgb(29, 29, 29);
+    color: rgb(29, 29, 29);
+    background-color: white;
+    width: 180px;
+}
+
+#bank-btn:hover {
+    background-color: whitesmoke;
+}
+
+#lista {
+    width: 100%;
+}

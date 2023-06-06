@@ -33,6 +33,10 @@ body {
     padding: 0;
 }
 
+.item-pic img {
+    padding: 0;
+}
+
 .cart-buttons {
     margin-right: 1rem;
 }
@@ -108,9 +112,11 @@ body {
 
 /*Checkout stored items*/
 .stored-item_box {
-    margin-left: 2rem;
+    /* margin-right: 2rem; */
     border-radius: 1rem;
     border: 1px solid gray;
+    text-align: center;
+    max-height: none;
 }
 
 #last {
@@ -128,15 +134,10 @@ body {
     padding: 0;
 }
 
-.stored-item_box {
-    min-width: 30vw;
-}
+
 
 .details {
     padding-left: 1rem;
     padding-right: 0.5rem;
 }
 
-.title {
-    margin-left: 2rem;
-}
