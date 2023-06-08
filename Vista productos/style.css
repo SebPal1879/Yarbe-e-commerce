@@ -165,3 +165,13 @@ main{
     color: white;
 }
 
+#login {
+    border-radius: 0 10px 0 10px;
+    width: 100px;
+    height: 38px;
+    margin-right: 10px;
+    background-color: #54dc9c;
+    border: none;
+    font-size: 16px;
+    font-family: sans-serif;
+  }
