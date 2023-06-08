@@ -100,5 +100,15 @@ button.Continue {
   color: #0D5FBD;
 }
 
+#close {
 
-/*# sourceMappingURL=style.css.map */
+  position: absolute;
+  top: 45px;
+  right: 60px;
+  font-size: 30px;
+  font-family: none;
+  color: black;
+  cursor: pointer;
+  
+}
+
