@@ -63,3 +63,7 @@ input::-webkit-inner-spin-button {
 .disabled {
     display: none;
 }
+
+.estilo {
+    border-bottom: none !important;
+}

@@ -164,3 +164,14 @@ main{
     background-color: #1CA220;
     color: white;
 }
+
+.disabledBtn {
+    cursor: default;
+    color: black;
+    background-color: gray;
+}
+
+.disabledBtn:hover {
+    color: black;
+    background-color: gray;
+}

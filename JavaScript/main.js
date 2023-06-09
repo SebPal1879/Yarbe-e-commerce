@@ -10,7 +10,8 @@ const productos = [
         categoria: {
             name: "Cardiovascular",
             id: "Cardiovascular"
-        }
+        },
+        mediop: 1
     },
     {
         id: "Cardiovascular02",
@@ -22,7 +23,8 @@ const productos = [
         categoria: {
             name: "Cardiovascular",
             id: "Cardiovascular"
-        }
+        },
+        mediop: 1
     },
     {
         id: "Cardiovascular03",
@@ -34,7 +36,8 @@ const productos = [
         categoria: {
             name: "Cardiovascular",
             id: "Cardiovascular"
-        }
+        },
+        mediop: 1
     },
     {
         id: "Hematologia01",
@@ -46,7 +49,8 @@ const productos = [
         categoria: {
             name: "Hematologia",
             id: "Hematoloia"
-        }
+        },
+        mediop: 1
     },
     {
         id: "Hematologia02",
@@ -58,7 +62,8 @@ const productos = [
         categoria: {
             name: "Hematologia",
             id: "Hematologia"
-        }
+        },
+        mediop: 1
     },
     {
         id: "Oncologia01",
@@ -70,7 +75,8 @@ const productos = [
         categoria: {
             name: "Oncologia",
             id: "Oncologia"
-        }
+        },
+        mediop: 1
     },
     {
         id: "Oncologia02",
@@ -82,7 +88,8 @@ const productos = [
         categoria: {
             name: "Oncologia",
             id: "Oncologia"
-        }
+        },
+        mediop: 2
     },
     {
         id: "Oncologia03",
@@ -94,7 +101,8 @@ const productos = [
         categoria: {
             name: "Oncologia",
             id: "Oncologia"
-        }
+        },
+        mediop: 1
     },
     {
         id: "Hormonal01",
@@ -106,7 +114,8 @@ const productos = [
         categoria: {
             name: "Hormonal",
             id: "Hormonal"
-        }
+        },
+        mediop: 1
     },
     {
         id: "Hormonal02",
@@ -118,7 +127,8 @@ const productos = [
         categoria: {
             name: "Hormonal",
             id: "Hormonal"
-        }
+        },
+        mediop: 2
     },
     {
         id: "Eye01",
@@ -130,7 +140,8 @@ const productos = [
         categoria: {
             name: "Eye",
             id: "Eye"
-        }
+        },
+        mediop: 1
     },
     {
         id: "Eye02",
@@ -142,7 +153,8 @@ const productos = [
         categoria: {
             name: "Eye",
             id: "Eye"
-        }
+        },
+        mediop: 1
     },
     {
         id: "Eye03",
@@ -154,7 +166,8 @@ const productos = [
         categoria: {
             name: "Eye",
             id: "Eye"
-        }
+        },
+        mediop: 2
     }
 
 ];
@@ -165,13 +178,23 @@ const tituloPrincipal = document.querySelector("#titulo-principal");
 let btnsAddToCart = document.querySelectorAll(".agregar-producto");
 const AtotalCartItems = document.querySelector("#cart-items");
 
+let storedCartItems = localStorage.getItem("items-in-cart");
+storedCartItems = JSON.parse(storedCartItems);
+
 let viewProduct = document.querySelectorAll(".producto-imagen");
 
 function cargarProducto(productoselegidos) {
-
+    var mediopago;
     contenerProductos.innerHTML = "";
     productoselegidos.forEach(producto => {
-
+        console.log(producto.mediop);
+        if (producto.mediop === 1) {
+            mediopago = "Cash";
+            console.log()
+        }
+        else {
+            mediopago = "Electronic transaction";
+        }
         const div = document.createElement("div");
         div.classList.add("producto");
         div.innerHTML = `<a href="../product page/index.html">
@@ -181,7 +204,8 @@ function cargarProducto(productoselegidos) {
                         <p class="producto-precio">Product code: ${producto.code}</p>
                         <p class="producto-precio">Content: ${producto.content}</p>
                         <p class="producto-precio">Cost: $${producto.cost}</p>
-                        <button class="agregar-producto" id="${producto.id}">Add</button>
+                        <p class="producto-precio">Payment method: ${mediopago}</p>
+                        <button class="agregar-producto ${mediopago}" id="${producto.id}">Add</button>
                     </div>
                     `;
 
@@ -189,12 +213,10 @@ function cargarProducto(productoselegidos) {
     })
     updateAddBtns();
     viewProducts();
+    
 }
 
-console.log("AaaQ");
-
 cargarProducto(productos);
-console.log("TTX")
 botonCategorias.forEach(boton => {
     boton.addEventListener("click", (e) => {
         botonCategorias.forEach(boton => boton.classList.remove("active"));
@@ -209,7 +231,7 @@ botonCategorias.forEach(boton => {
             tituloPrincipal.innerText = "All Products";
             cargarProducto(productos);
         }
-
+        disable();
 
     })
 });
@@ -220,6 +242,7 @@ function updateAddBtns() {
 
     btnsAddToCart.forEach(button => {
         button.addEventListener("click", addToCart);
+
     });
 }
 
@@ -228,14 +251,69 @@ let cartProductsLS = localStorage.getItem("items-in-cart");
 console.log(cartProductsLS);
 
 if (cartProductsLS) {
+
     cartProducts = JSON.parse(cartProductsLS);
     updateTotalCartItems();
+    
 } else {
     cartProducts = [];
 }
 
+disable();
+function disable(){
+    // console.log(cartProducts[0].mediop);
+    var mt2 = cartProducts[0].mediop;
+    btnsAddToCart = document.querySelectorAll(".agregar-producto");
+
+    btnsAddToCart.forEach(button => {
+        if (!(button.matches('.Cash')) && (mt2 == 1)) {
+            console.log(button);
+            console.log(button.id + "tiene 2");
+            button.disabled = true;
+            button.classList.add("disabledBtn")
+        }
+        else if ((button.matches('.Cash')) && !(mt2 == 1)){
+            console.log(button);
+            console.log(button.id + "tiene 1");
+            button.disabled = true;
+            button.classList.add("disabledBtn")
+        }
+    })
+}
+
 function addToCart(e) {
+    console.log("aaaja");
     const uid = e.currentTarget.id;
+    console.log(uid);
+    const addedProduct2 = productos.find(producto => producto.id === uid);
+    console.log(addedProduct2);
+    mt = addedProduct2.mediop;
+    // console.log(mt);
+    // console.log("hola");
+    btnsAddToCart.forEach(button => {
+        console.log(button.matches('.Cash') == false);
+        console.log(mt);
+        console.log(button.id);
+        console.log(e.currentTarget.classList + "sisas" + mt);
+        if (!(button.matches('.Cash')) && (mt == 1)) {
+            console.log(button);
+            console.log(button.id + "tiene 2");
+            button.disabled = true;
+            button.classList.add("disabledBtn")
+        }
+        else if ((button.matches('.Cash')) && !(mt == 1)) {
+            console.log(button);
+            console.log(button.id + "tiene 1");
+            button.disabled = true;
+            button.classList.add("disabledBtn")
+        }
+        // if (cartProducts.some(producto => producto.id === uid)) {
+        //     const index2 = cartProducts.findIndex(producto => producto.id === uid);
+        //     console.log(cartProducts[index2]);
+        //     console.log("Ward");
+        // }
+
+    });
     console.log(uid);
     const addedProduct = productos.find(producto => producto.id === uid);
 
@@ -251,6 +329,12 @@ function addToCart(e) {
 
     localStorage.setItem("items-in-cart", JSON.stringify(cartProducts));
 }
+
+// cartproductos();
+// function cartproductos() {
+//     cartProducts = JSON.parse(cartProductsLS);
+//     console.log(cartProducts + "cartproductos");
+// }
 
 function updateTotalCartItems() {
     let totalCartItems = cartProducts.reduce((i, producto) => i + producto.cantidad, 0);
