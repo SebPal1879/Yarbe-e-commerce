@@ -60,7 +60,7 @@ $conexion = conexion();
                         <?php echo $ver[5] ?>
                     </td>
                     <td>
-                        <button class="btn btn-warning glyphicon glyphicon-pencil" data-bs-toggle="modal"
+                        <button class="btn btn-success glyphicon glyphicon-pencil" data-bs-toggle="modal"
                             data-bs-target="#modalEditaru" onclick="agregaform3('<?php echo $datos ?>')"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
                                 <path
