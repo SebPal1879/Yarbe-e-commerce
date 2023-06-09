@@ -47,8 +47,8 @@ const productos = [
         content: "Box 10 Ampoules",
         cost: 640.000,
         categoria: {
-            name: "Hematologia",
-            id: "Hematoloia"
+            name: "Hematology",
+            id: "Hematology"
         },
         mediop: 1
     },
@@ -60,8 +60,8 @@ const productos = [
         content: "Box With 2",
         cost: 987.970,
         categoria: {
-            name: "Hematologia",
-            id: "Hematologia"
+            name: "Hematology",
+            id: "Hematology"
         },
         mediop: 1
     },
@@ -73,8 +73,8 @@ const productos = [
         content: "Injectable x 2",
         cost: 82.447,
         categoria: {
-            name: "Oncologia",
-            id: "Oncologia"
+            name: "Oncology",
+            id: "Oncology"
         },
         mediop: 1
     },
@@ -86,8 +86,8 @@ const productos = [
         content: "Inhibitor 500UI/1U",
         cost: 2.748,
         categoria: {
-            name: "Oncologia",
-            id: "Oncologia"
+            name: "Oncology",
+            id: "Oncology"
         },
         mediop: 2
     },
@@ -99,8 +99,8 @@ const productos = [
         content: "Injectable x 6",
         cost: 2.748,
         categoria: {
-            name: "Oncologia",
-            id: "Oncologia"
+            name: "Oncology",
+            id: "Oncology"
         },
         mediop: 1
     },
@@ -282,7 +282,6 @@ function disable(){
 }
 
 function addToCart(e) {
-    console.log("aaaja");
     const uid = e.currentTarget.id;
     console.log(uid);
     const addedProduct2 = productos.find(producto => producto.id === uid);
@@ -294,7 +293,6 @@ function addToCart(e) {
         console.log(button.matches('.Cash') == false);
         console.log(mt);
         console.log(button.id);
-        console.log(e.currentTarget.classList + "sisas" + mt);
         if (!(button.matches('.Cash')) && (mt == 1)) {
             console.log(button);
             console.log(button.id + "tiene 2");
@@ -329,12 +327,6 @@ function addToCart(e) {
 
     localStorage.setItem("items-in-cart", JSON.stringify(cartProducts));
 }
-
-// cartproductos();
-// function cartproductos() {
-//     cartProducts = JSON.parse(cartProductsLS);
-//     console.log(cartProducts + "cartproductos");
-// }
 
 function updateTotalCartItems() {
     let totalCartItems = cartProducts.reduce((i, producto) => i + producto.cantidad, 0);

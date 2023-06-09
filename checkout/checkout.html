@@ -95,7 +95,7 @@
 
                             <div>
                                 <h5>Payment method</h5>
-                                <div class="d-flex row">
+                                <div class="d-flex row" id="pmtMt2">
                                     <div class="mb-3 inputuna">
                                         <select class="form-select" aria-label="Default select example" id="pmtMt"
                                             required>
@@ -155,6 +155,28 @@
                                                 <option value="Davivienda">Davivienda</option>
                                                 <option value="Bancolombia">Bancolombia</option>
                                                 <option value="Scotiabank Colpatria">Scotiabank Colpatria</option>
+                                            </select>
+                                        </div>
+                            
+                                        <div class="mb-3 inputuna">
+                                            <label for="basic-url" class="form-label">Enter your email address</label>
+                                            <input type="text" class="form-control" placeholder="email@domain.com" pattern="[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}" id="email" required>
+                                            <div class="invalid-feedback">
+                                                Please enter a valid email address
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="disabled" id="methodCash">
+                                    <h6>Cash</h6>
+                                    <div class="d-flex row">
+                                        <div class="mb-3 inputuna">
+                                            <label for="basic-url" class="form-label">Select where you are paying</label>
+                                            <select class="form-select" aria-label="Default select example" id="lista"required>
+                                                <option selected disabled value="">Choose...</option>
+                                                <option value="Efecty">Efecty</option>
+                                                <option value="Baloto">Baloto</option>
                                             </select>
                                         </div>
                             

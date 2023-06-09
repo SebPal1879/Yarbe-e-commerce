@@ -187,14 +187,12 @@ const BtotalCartItems = document.querySelector("#cart-items");
 
 
 function loadItemInfo() {
-    // if (itemToView.mediop != storedCartItems[0].mediop) {
-    //     console.log("Son diferentes");
-    //     itemToView.id.disabled = true;
-    //     itemToView.id.classList.add("disabledBtn")
-    // }
-    // else {
-    //     console.log("son iguales")
-    // }
+    if(itemToView.mediop == 1){
+        var a = "Cash";
+    }
+    else{
+        var a = "Electronic transaction";
+    }
     const div = document.createElement("div");
     div.classList.add("container");
     div.innerHTML = `
@@ -233,13 +231,9 @@ function loadItemInfo() {
 
                         <div class="pmt-met">
                             <article>
-                                <h5>Payment methods available: </h5>
+                                <h5>Payment method available: ${a}</h5>
                             </article>
 
-                            <div>
-                                <img src="../payments/Mastercard-logo.svg.png" alt="">
-                                <img src="../payments/Visa_Inc._logo.svg.png" alt="">
-                            </div>
                         </div>
 
                         <div class="btns">
@@ -296,12 +290,59 @@ if (cartProductsLS) {
 }
 
 
+if(storedCartItems[0].mediop != itemToView.mediop){
+    disable();
+    console.log("es diferente");
+} else {
+    console.log("es igual");
+
+}
+
+function disable(){
+    // console.log(cartProducts[0].mediop);
+    var mt2 = cartProducts[0].mediop;
+    console.log(mt2);
+    btnsAddToCart = document.querySelectorAll(".agregar-producto");
+
+    btnsAddToCart.forEach(button => {
+        console.log(button.id);
+        if (button.id == itemToView.id){
+            button.disabled = true;
+            button.classList.add("disabledBtn");
+        }
+    });
+}
 
 function addToCart(e) {
     const uid = e.currentTarget.id;
     console.log(uid);
     const addedProduct = cartProducts.find(producto => producto.id === uid);
     console.log("Nonas");
+    console.log(cartProducts)
+    // btnsAddToCart.forEach(button => {
+    //     console.log(button.matches('.Cash') == false);
+    //     console.log(mt);
+    //     console.log(button.id);
+    //     if (!(button.matches('.Cash')) && (mt == 1)) {
+    //         console.log(button);
+    //         console.log(button.id + "tiene 2");
+    //         button.disabled = true;
+    //         button.classList.add("disabledBtn");
+    //     }
+    //     else if ((button.matches('.Cash')) && !(mt == 1)) {
+    //         console.log(button);
+    //         console.log(button.id + "tiene 1");
+    //         button.disabled = true;
+    //         button.classList.add("disabledBtn")
+    //     }
+    //     // if (cartProducts.some(producto => producto.id === uid)) {
+    //     //     const index2 = cartProducts.findIndex(producto => producto.id === uid);
+    //     //     console.log(cartProducts[index2]);
+    //     //     console.log("Ward");
+    //     // }
+
+    // });
+
     if (cartProducts.some(producto => producto.id === uid)) {
         const index = cartProducts.findIndex(producto => producto.id === uid);
         cartProducts[index].cantidad++;
@@ -324,13 +365,11 @@ function viewProducts() {
 
     viewProduct.forEach(button => {
         button.addEventListener("click", productInfo);
-        console.log("AAA");
     });
 }
 
 function productInfo(e) {
     const selected = e.currentTarget.alt;
-    console.log("selected " + selected);
     const addedProduct = cartProducts.find(producto => producto.titulo === selected);
     console.log(addedProduct);
     localStorage.setItem("productToSee", JSON.stringify(addedProduct));

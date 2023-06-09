@@ -5,7 +5,7 @@ let storedCartItems = localStorage.getItem("items-in-cart");
 const cartFilled = document.querySelector("#item-display");
 
 storedCartItems = JSON.parse(storedCartItems);
-console.log(storedCartItems);
+console.log(storedCartItems[0].mediop);
 
 
 // var invalidCharsName = [
@@ -39,8 +39,40 @@ var correuna = /^[\w.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 
 var pmtMt = document.getElementById("pmtMt");
+var pmtMt2 = document.getElementById("pmtMt2");
+
 var PSE = document.getElementById("methodPSE");
 var card = document.getElementById("methodCard");
+var cash = document.getElementById("methodCash");
+
+if (storedCartItems[0].mediop == 1) {
+    PSE.innerHTML = "";
+    card.innerHTML = "";
+    pmtMt.innerHTML = "";
+    pmtMt2.innerHTML = "";
+    var div = document.createElement("div");
+    cash.innerHTML = "";
+    cash.innerHTML = `<h6>Cash</h6>
+                                    <div class="d-flex row">
+                                        <div class="mb-3 inputuna">
+                                            <label for="basic-url" class="form-label">Select where you are paying</label>
+                                            <select class="form-select" aria-label="Default select example" id="lista"required>
+                                                <option selected disabled value="">Choose...</option>
+                                                <option value="Efecty">Efecty</option>
+                                                <option value="Baloto">Baloto</option>
+                                            </select>
+                                        </div>
+                            
+                                        <div class="mb-3 inputuna">
+                                            <label for="basic-url" class="form-label">Enter your email address</label>
+                                            <input type="text" class="form-control" placeholder="email@domain.com" pattern="[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}" id="email" required>
+                                            <div class="invalid-feedback">
+                                                Please enter a valid email address
+                                            </div>
+                                        </div>
+                                    </div>`;
+    cash.classList.remove("disabled");
+}
 
 lista.addEventListener("change", function () {
     var textoSeleccionado = lista.options[lista.selectedIndex].text;
@@ -58,8 +90,8 @@ pmtMt.addEventListener("change", function () {
     //     pmtMt.remove(0);
     // }
     if (selectedPmtMt == "PSE") {
-        
-        
+
+
         var div = document.createElement("div");
         card.innerHTML = "";
         PSE.innerHTML = `<h6>PSE</h6>
@@ -83,7 +115,7 @@ pmtMt.addEventListener("change", function () {
             </div>
         </div>`;
         PSE.classList.remove("disabled");
-        
+
     }
     else if (selectedPmtMt == "Card") {
         var div = document.createElement("div");
@@ -177,9 +209,9 @@ const total = document.querySelector("#total");
 function loadCartProducts() {
     var i = 0;
     if (storedCartItems && storedCartItems.length > 0) {
-        
+
         storedCartItems.forEach(producto => {
-            const cartDiv = document.createElement("div");   
+            const cartDiv = document.createElement("div");
             console.log(producto.cantidad);
             console.log(producto.cost);
             cartDiv.innerHTML = `
@@ -200,7 +232,7 @@ function loadCartProducts() {
             `;
             console.log("buenas2 " + i)
             console.log(storedCartItems.length);
-            if(i === storedCartItems.length - 1  ){
+            if (i === storedCartItems.length - 1) {
                 cartDiv.classList.add("estilo");
                 console.log(producto.titulo);
                 console.log("buenas")
