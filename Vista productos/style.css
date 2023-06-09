@@ -121,13 +121,16 @@ main{
 .contendor-productos{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    gap: 4rem;
+   
 }
 .producto-imagen{
     max-width: 100%;
     border-radius: 1rem;
-    height: 150px;
-    align-content: center;
+    height: 350px;
+    width: 300px;
+    padding: 30px;
+    
 }
 .producto-detalle{
     background-color:#085088;
@@ -165,6 +168,7 @@ main{
     color: white;
 }
 
+<<<<<<< HEAD
 .disabledBtn {
     cursor: default;
     color: black;
@@ -175,3 +179,15 @@ main{
     color: black;
     background-color: gray;
 }
+=======
+#login {
+    border-radius: 10px;
+    width: 100px;
+    height: 38px;
+    margin-right: 10px;
+    background-color: #54dc9c;
+    border: none;
+    font-size: 16px;
+    font-family: sans-serif;
+  }
+>>>>>>> eef623575a1dee8d5cfdb7051dca04b6d19f499b
