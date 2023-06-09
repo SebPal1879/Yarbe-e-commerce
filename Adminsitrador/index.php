@@ -107,7 +107,7 @@ $conexion = conexion();
                         </div>
                         <div class="modal-body">
                             <label>Name</label>
-                            <input type="text" id="namec1" class="from-control input-sm">
+                            <input type="text" id="namec1" class="from-control input-sm" required>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="guradarnuevoc">
@@ -129,7 +129,7 @@ $conexion = conexion();
                         <div class="modal-body">
                             <input type="text" hidden="" id="idca" name="">
                             <label>Name</label>
-                            <input type="text" id="namece" class="from-control input-sm">
+                            <input type="text" id="namece" class="from-control input-sm" required>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-warning" data-bs-dismiss="modal"
@@ -203,8 +203,9 @@ $conexion = conexion();
                             <input type="text" id="idp3" name="idp" class="form-control input-sm">
                             <label>Title</label>
                             <input type="text" id="titlep3" name="titlep" class="form-control input-sm">
-                            <label id="fichero"for="imagep3">Image</label>
-                            <input type='file' id='imagep3' name="file" class="form-control input-sm" accept=".jpg, .jpeg, .png">
+                            <label id="fichero" for="imagep3">Image</label>
+                            <input type='file' id='imagep3' name="file" class="form-control input-sm"
+                                accept=".jpg, .jpeg, .png" onchange="processSelectedFiles(this)">
                             <label>Code</label>
                             <input type="text" id="codep3" name="codep" class="form-control input-sm">
                             <label>Content</label>
@@ -212,9 +213,37 @@ $conexion = conexion();
                             <label>Cost</label>
                             <input type="number" id="costp3" name="costp" class="form-control input-sm">
                             <label>Name Category</label>
-                            <input type="text" id="namep3" name="namep" class="form-control input-sm">
+                            <select id="namep3" class="form-select" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <?php
+                                $sql = "SELECT idc, namec from categoria";
+                                $result = mysqli_query($conexion, $sql);
+                                while ($ver = mysqli_fetch_row($result)) {
+                                    $datos = $ver[0] . "||" .
+                                        $ver[1];
+                                    ?>
+                                    <option value="<?php echo $ver[1] ?>"> <?php echo $ver[1] ?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
                             <label>Payment method</label>
-                            <input type="text" id="paymentp3" name="paymentp" class="form-control input-sm">
+                            <select id="paymentp3" class="form-select" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <?php
+                                $sql = "SELECT idm, namem from metodop";
+                                $result = mysqli_query($conexion, $sql);
+
+                                while ($ver = mysqli_fetch_row($result)) {
+                                    $datos = $ver[0] . "||" .
+                                        $ver[1];
+
+                                    ?>
+                                    <option value="<?php echo $ver[1] ?>"> <?php echo $ver[1] ?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
@@ -239,8 +268,13 @@ $conexion = conexion();
                             <input type="text" id="idp" name="idp" class="form-control input-sm">
                             <label>Title</label>
                             <input type="text" id="titlep" name="titlep" class="form-control input-sm">
-                            <label for="imagep">Image</label>
-                            <input type="file" id="imagep" name="imagep" class="form-control input-sm">
+                            <div>
+                                <label>Imagen</label>
+                                <input type="text" id="titlepn" name="titlepn" class="form-control input-sm">
+                                <label for="imagep">Eddit Image</label>
+                                <input type="file" id="imagep" name="imagep" class="form-control input-sm"
+                                    accept=".jpg, .jpeg, .png" onchange="processSelectedFiles(this)">
+                            </div>
                             <label>Code</label>
                             <input type="text" id="codep" name="codep" class="form-control input-sm">
                             <label>Content</label>
@@ -249,8 +283,38 @@ $conexion = conexion();
                             <input type="number" id="costp" name="costp" class="form-control input-sm">
                             <label>Name Category</label>
                             <input type="text" id="namep" name="namep" class="form-control input-sm">
+                            <select id="namepx" class="form-select" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <?php
+                                $sql = "SELECT idc, namec from categoria";
+                                $result = mysqli_query($conexion, $sql);
+                                while ($ver = mysqli_fetch_row($result)) {
+                                    $datos = $ver[0] . "||" .
+                                        $ver[1];
+                                    ?>
+                                    <option value="<?php echo $ver[1] ?>"> <?php echo $ver[1] ?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
                             <label>Payment method</label>
                             <input type="text" id="paymentp" name="paymentp" class="form-control input-sm">
+                            <select id="paymentpx" class="form-select" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <?php
+                                $sql = "SELECT idm, namem from metodop";
+                                $result = mysqli_query($conexion, $sql);
+
+                                while ($ver = mysqli_fetch_row($result)) {
+                                    $datos = $ver[0] . "||" .
+                                        $ver[1];
+
+                                    ?>
+                                    <option value="<?php echo $ver[1] ?>"> <?php echo $ver[1] ?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-warning" data-bs-dismiss="modal"
@@ -320,15 +384,18 @@ $conexion = conexion();
 <script type="text/javascript">
     $(document).ready(function () {
         $('#guardarnuevop').click(function () {
-            id = $('idp3').val();
-            title = $('titlep3').val();
-            image1 = $('imagep3').val();
-            code = $('codep3').val();
-            content = $('contentp3').val();
-            cost = $('costp3').val();
-            name = $('namep3').val();
-            payment = $('paymentp3').val();
-            agregarProductos(id, title, image1, code, content, cost, name, payment);
+            id1 = $('#idp3').val();
+            title1 = $('#titlep3').val();
+            image1 = processSelectedFiles(imagep3);
+            code1 = $('#codep3').val();
+            content1 = $('#contentp3').val();
+            cost1 = $('#costp3').val();
+            name1 = $('#namep3').val();
+            payment1 = $('#paymentp3').val();
+            agregarProductos(id1, title1, image1, code1, content1, cost1, name1, payment1);
+        });
+        $('#actualizardatosp').click(function () {
+            actualizarDatosp();
         });
     });
 </script>
