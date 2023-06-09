@@ -171,8 +171,7 @@ main{
 }
 
 #users{
-
-    
+    border-radius: 10px;
     width: 100px;
     height: 38px;
     margin-right: 10px;
