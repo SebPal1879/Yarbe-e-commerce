@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2023 a las 21:09:29
+-- Tiempo de generación: 09-06-2023 a las 06:25:34
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -58,7 +58,8 @@ CREATE TABLE `metodop` (
 --
 
 INSERT INTO `metodop` (`idm`, `namem`) VALUES
-(1, 'PSE');
+(1, 'Cash'),
+(2, 'Electronic transaction');
 
 -- --------------------------------------------------------
 
@@ -95,11 +96,7 @@ INSERT INTO `producto` (`idp`, `idname`, `titulo`, `imagen`, `code`, `content`, 
 (10, 'Hormonal02', 'GHR Complex', 'GHRComplex.jpg', '7083', 'Mg 180 Cap', 199900, 'Hormonal', 'PSE'),
 (11, 'Oncologia01', 'Brineura', 'Brineura.jpg', '20142418-1', 'Injectable x 2', 82447, 'Oncologia', 'PSE'),
 (12, 'Oncologia02', 'Berinert', 'Berinert.jpg', '20094884-1', 'Inhibitor 500UI/1U', 748345, 'Oncologia', 'PSE'),
-(13, 'Oncologia03', 'Imukin', 'Berinert.jpg', '211873-1', 'Injectable x 6', 274834, 'Oncologia', 'PSE'),
-(16, 'undefined', 'undefined', 'undefined', 'undefined', 'undefined', 0, 'undefined', ''),
-(17, 'undefined', 'undefined', 'undefined', 'undefined', 'undefined', 0, 'undefined', ''),
-(18, 'undefined', 'undefined', 'undefined', 'undefined', 'undefined', 0, 'undefined', ''),
-(19, 'undefined', 'undefined', 'undefined', 'undefined', 'undefined', 0, 'undefined', '');
+(69, '1', '1', 'Bolentax.jpg', '1', '1', 434, 'Hormonal', 'Electronic transaction');
 
 -- --------------------------------------------------------
 
@@ -187,19 +184,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `idc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `metodop`
 --
 ALTER TABLE `metodop`
-  MODIFY `idm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `idp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`

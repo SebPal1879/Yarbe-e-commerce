@@ -50,6 +50,12 @@ $conexion = conexion();
 
 
                     </ul>
+                    <div class="div">
+                    <button id="users">Users</button>
+                    </div>
+                    <div class="div">
+                    <button id="products">Products</button>
+                </div>
                 </div>
             </div>
         </nav>
@@ -213,5 +219,20 @@ $conexion = conexion();
         $('#actualizardatosp').click(function () {
             actualizarDatosp();
         });
+    });
+</script>
+
+<script>
+    var boton = document.getElementById("products");
+
+boton.addEventListener("click", function() {
+  window.location.href = "../Adminsitrador/index.php";
+});
+</script>
+<script>
+     var boton = document.getElementById("users");
+
+    boton.addEventListener("click", function() {
+    window.location.href = "../Adminsitrador/user.php";
     });
 </script>
