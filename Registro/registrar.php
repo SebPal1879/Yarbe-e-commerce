@@ -1,10 +1,10 @@
 <?php
 
-$nombre = isset($_POST['username']) ? $_POST['username'] : '';
-$id = isset($_POST['userID']) ? $_POST['userID'] : '';
-$correo = isset($_POST['email']) ? $_POST['email'] : '';
-$contrasena = isset($_POST['password']) ? $_POST['password'] : '';
-$id_rol = 2;
+$name = isset($_POST['username']) ? $_POST['username'] : '';
+$idc = isset($_POST['userID']) ? $_POST['userID'] : '';
+$mail = isset($_POST['email']) ? $_POST['email'] : '';
+$password = isset($_POST['password']) ? $_POST['password'] : '';
+$role = 2;
 
 try {
 
@@ -12,13 +12,13 @@ try {
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
-    $pdo = $conexion->prepare('INSERT INTO usuarios(nombre, id, correo, contrasena, id_rol) VALUES(?, ?, ?, ?, ?)');
+    $pdo = $conexion->prepare('INSERT INTO usuarios(name, idc, mail, password, role) VALUES(?, ?, ?, ?, ?)');
 
-    $pdo->bindParam(1, $nombre);
-    $pdo->bindParam(2, $id);
-    $pdo->bindParam(3, $correo);
-    $pdo->bindParam(4, $contrasena);
-    $pdo->bindParam(5, $id_rol);
+    $pdo->bindParam(1, $name);
+    $pdo->bindParam(2, $idc);
+    $pdo->bindParam(3, $mail);
+    $pdo->bindParam(4, $password);
+    $pdo->bindParam(5, $role);
 
     $pdo->execute() or die(print($pdo->errorInfo()));
 

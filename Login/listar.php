@@ -14,9 +14,9 @@ try {
 
         $data[] = [
 
-            'correo' => $item->correo,
-            'contrasena' => $item->contrasena,
-            'id_rol' => $item->id_rol, 
+            'mail' => $item->mail,
+            'password' => $item->password,
+            'role' => $item->role, 
             
         ];
 

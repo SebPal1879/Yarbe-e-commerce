@@ -10,8 +10,8 @@ function validarFormulario(event) {
       .then(data => {
 
         // Buscar una coincidencia exacta del correo, contraseña y rol en los datos
-        var admin = data.find(item => item.correo === email && item.contrasena === password && item.id_rol === 1);
-        var cliente = data.find(item => item.correo === email && item.contrasena === password && item.id_rol === 2);
+        var admin = data.find(item => item.mail === email && item.password === password && item.role === 1);
+        var cliente = data.find(item => item.mail === email && item.password === password && item.role === 2);
         
 
         if (cliente) {
