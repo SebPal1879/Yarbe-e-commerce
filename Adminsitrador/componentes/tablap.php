@@ -7,8 +7,8 @@ $conexion = conexion();
     <div class="col-md-12 text-center">
         <h1>Products</h1>
     </div>
-    <div class="col-md-12">
-        <table class="table table-hover table-condensed table-bordered">
+    <div class="col-md-12 justify-content-center align-items-center">
+        <table class="table table-hover table-condensed table-bordered border-5">
             <caption>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNuevop">Add New
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

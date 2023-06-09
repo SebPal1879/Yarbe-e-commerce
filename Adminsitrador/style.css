@@ -182,9 +182,17 @@ main{
 
 }
 
+#tabla{
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    border-radius: 10px;
+    border: black;
+}
+
 #products{
 
-    
+    border-radius: 10px;
     width: 100px;
     height: 38px;
     margin-right: 10px;

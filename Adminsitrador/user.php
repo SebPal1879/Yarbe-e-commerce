@@ -51,11 +51,11 @@ $conexion = conexion();
 
                     </ul>
                     <div class="div">
-                    <button id="users">Users</button>
+                        <button id="users">Users</button>
                     </div>
                     <div class="div">
-                    <button id="products">Products</button>
-                </div>
+                        <button id="products">Products</button>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -78,7 +78,7 @@ $conexion = conexion();
                                     d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2h-13z" />
                                 <path
                                     d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6z" />
-                            </svg>Administration</button></li>
+                            </svg>Administration Customer</button></li>
                 </ul>
             </nav>
             <!--Footer-->
@@ -95,56 +95,108 @@ $conexion = conexion();
 
         </aside>
         <main>
-            <h2 id="titulo-principal" class="titulo-principal">All Products</h2>
+            <h2 id="titulo-principal" class="titulo-principal">All Customer</h2>
             <div id="contendor-productos" class="contendor-productos">
 
             </div>
             <div class="container pt-5">
                 <div id="tabla"></div>
             </div>
-            <!-- Modal registros nuevos Categoria -->
-            <div class="modal fade" id="modalNuevoc" tabindex="-1" aria-labelledby="exampleModalLabel"
+
+            <!-- Modal para registros nuevo User-->
+            <div class="modal fade" id="modalNuevou" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add New Category</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Add New User</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+
                         <div class="modal-body">
                             <label>Name</label>
-                            <input type="text" id="namec1" class="from-control input-sm" required>
+                            <input type="text" id="Name" name="Name" class="form-control input-sm">
+                            <label>ID</label>
+                            <input type="number" id="ID" name="ID" class="form-control input-sm">
+                            <label>Mail</label>
+                            <input type="email" id="Mail" name="Mail" class="form-control input-sm">
+                            <label>Password</label>
+                            <input type="text" id="Password" name="Password" class="form-control input-sm">
+                            <label>Profile</label>
+                            <select id="Profile" name="Profile" class="form-control input-sm"
+                                aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <?php
+                                $sql = "SELECT id, descripcion from roles";
+                                $result = mysqli_query($conexion, $sql);
+
+                                while ($ver = mysqli_fetch_row($result)) {
+                                    $datos = $ver[0] . "||" .
+                                        $ver[1];
+
+                                    ?>
+                                    <option value="<?php echo $ver[0] ?>"> <?php echo $ver[1] ?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="guradarnuevoc">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="guradarnuevou">
                                 Add</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Modal Editr Categoria -->
-            <div class="modal fade" id="modalEditarc" tabindex="-1" aria-labelledby="exampleModalLabel"
+            <!-- Modal Editr Usuario -->
+            <div class="modal fade" id="modalEditaru" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <input type="text" hidden="" id="idca" name="">
+                            <input type="number" hidden="" id="idu1" name="idu1">
                             <label>Name</label>
-                            <input type="text" id="namece" class="from-control input-sm" required>
+                            <input type="text" id="Nameu" name="Name" class="form-control input-sm">
+                            <label>ID</label>
+                            <input type="number" id="IDu2" name="ID" class="form-control input-sm">
+                            <label>Mail</label>
+                            <input type="text" id="Mailu" name="Mail" class="form-control input-sm">
+                            <label>Password</label>
+                            <input type="text" id="Passwordu" name="Password" class="form-control input-sm">
+                            <label>Profile </label>
+                            <input type="number" id="Profileu" name="Profileu" class="form-control input-sm">
+                            <select id="Profilex" name="Profile" class="form-control input-sm"
+                                aria-label="Default select example">
+                                <option selected>Open Profile this select menu</option>
+                                <?php
+                                $sql = "SELECT id, descripcion from roles";
+                                $result = mysqli_query($conexion, $sql);
+
+                                while ($ver = mysqli_fetch_row($result)) {
+                                    $datos = $ver[0] . "||" .
+                                        $ver[1];
+
+                                    ?>
+                                    <option value="<?php echo $ver[0] ?>"> <?php echo $ver[1] ?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                            <input type="text" hidden="" id="idu1" name="">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-warning" data-bs-dismiss="modal"
-                                id="actualizardatosc">Update</button>
+                                id="actualizardatosu">Update</button>
                         </div>
                     </div>
                 </div>
-            </div>          
-            
+            </div>
+
 
         </main>
     </div>
@@ -164,60 +216,23 @@ $conexion = conexion();
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#tabla').load('componentes/tablac.php');
-    });
-</script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#tabla1').load('componentes/tablam.php');
-    });
-</script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#tabla2').load('componentes/tablap.php');
+        $('#tabla').load('componentes/tablau.php');
     });
 </script>
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#guradarnuevoc').click(function () {
-            name = $('#namec1').val();
-            agregarCategoria(name);
+        $('#guradarnuevou').click(function () {
+            name = $('#Name').val();
+            id = $('#ID').val();
+            mail = $('#Mail').val();
+            password = $('#Password').val();
+            profile = $('#Profile').val();
+            agregarUsauario(name, id, mail, password, profile);
         });
 
-        $('#actualizardatosc').click(function () {
-            actualizaDatos();
-        });
-    });
-</script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#guradarnuevom').click(function () {
-            name = $('#namem1').val();
-            agregarMetodop(name);
-        });
-        $('#actualizardatosm').click(function () {
-            actualizarDatosm();
-        });
-
-    });
-</script>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#guardarnuevop').click(function () {
-            id1 = $('#idp3').val();
-            title1 = $('#titlep3').val();
-            image1 = processSelectedFiles(imagep3);
-            code1 = $('#codep3').val();
-            content1 = $('#contentp3').val();
-            cost1 = $('#costp3').val();
-            name1 = $('#namep3').val();
-            payment1 = $('#paymentp3').val();
-            agregarProductos(id1, title1, image1, code1, content1, cost1, name1, payment1);
-        });
-        $('#actualizardatosp').click(function () {
-            actualizarDatosp();
+        $('#actualizardatosu').click(function () {
+            actualizadatosu();
         });
     });
 </script>
@@ -225,14 +240,14 @@ $conexion = conexion();
 <script>
     var boton = document.getElementById("products");
 
-boton.addEventListener("click", function() {
-  window.location.href = "../Adminsitrador/index.php";
-});
+    boton.addEventListener("click", function () {
+        window.location.href = "../Adminsitrador/index.php";
+    });
 </script>
 <script>
-     var boton = document.getElementById("users");
+    var boton = document.getElementById("users");
 
-    boton.addEventListener("click", function() {
-    window.location.href = "../Adminsitrador/user.php";
+    boton.addEventListener("click", function () {
+        window.location.href = "../Adminsitrador/user.php";
     });
 </script>

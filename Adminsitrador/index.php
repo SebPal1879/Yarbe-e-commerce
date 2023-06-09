@@ -401,6 +401,7 @@ $conexion = conexion();
         $('#actualizardatosp').click(function () {
             actualizarDatosp();
         });
+        document.getElementById('modal-body').reset();
     });
 </script>
 

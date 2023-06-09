@@ -309,3 +309,109 @@ function eliminarDatosp(id) {
 		}
 	});
 }
+
+//Funciones de usuario
+function agregarUsauario(name, id, mail, password, profile) {
+
+	cadena = "&name=" + name +
+	"&id=" + id +
+	"&mail=" + mail +
+	"&password=" + password +
+	"&profile=" + profile;
+
+	$.ajax({
+		type: "POST",
+		url: "php/agregarDatosu.php",
+		data: cadena,
+		success: function (r) {
+			if (r == 1) {
+				$('#tabla').load('componentes/tablau.php');
+				alertify.success("Added successfully :)");
+			} else {
+				alertify.error("Server failed :(");
+			}
+		}
+	});
+}
+
+function agregaform3(datos) {
+
+	d = datos.split('||');
+
+	$('#idu1').val(d[0]);
+	$('#Nameu').val(d[1]);
+	$('#IDu2').val(d[2]);
+	$('#Mailu').val(d[3]);
+	$('#Passwordu').val(d[4]);
+	$('#Profileu').val(d[5]);
+	
+
+}
+
+
+function actualizadatosu() {
+
+	id0 = $('#idu1').val();
+	name1 = $('#Nameu').val();
+	id = $('#IDu2').val();
+	mail = $('#Mailu').val();
+	passwordu = $('#Passwordu').val();
+	profileu = $('#Profileu').val();
+	profilex = $('#Profilex').val();
+	
+
+	if(profilex == 2 || profilex ==1 ){
+		profileu=$('#Profilex').val();
+	}
+
+
+	cadena = "&id0=" + id0 +
+		"&name1=" + name1 +
+		"&id=" + id +
+		"&mail=" + mail +
+		"&passwordu=" + passwordu +
+		"&profileu=" + profileu;
+
+		
+
+	$.ajax({
+		type: "POST",
+		url: "php/actualizaDatosu.php",
+		data: cadena,
+		success: function (r) {
+
+			if (r == 1) {
+				$('#tabla').load('componentes/tablau.php');
+				alertify.success("Successfully updated :)");
+			} else {
+				alertify.error("Server failed :(");
+			}
+		}
+	});
+
+}
+
+function preguntarSiNou(id) {
+	alertify.confirm('Delete Data', 'Are you sure to delete this record?',
+		function () { eliminarDatosu(id) }
+		, function () { alertify.error('Cancel') });
+}
+
+function eliminarDatosu(id) {
+
+	cadena = "id=" + id;
+
+	$.ajax({
+		type: "POST",
+		url: "php/eliminarDatosu.php",
+		data: cadena,
+		success: function (r) {
+			if (r == 1) {
+				$('#tabla').load('componentes/tablau.php');
+				alertify.success("Deleted successfully!");
+			} else {
+				alertify.error("Server failed :(");
+			}
+		}
+	});
+}
