@@ -4,10 +4,11 @@ require_once "../php/conexion.php";
 $conexion = conexion();
 
 ?>
+
 <div class="row">
     <div class="col-sm-12 justify-content-center align-items-center">
         <h2>Category</h2>
-        <table class="table table-hover table-condensed table-bordered">
+        <table class="table">
             <caption>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNuevoc">
                     Add New <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
