@@ -127,7 +127,8 @@ body {
 .stored-item_buy {
     border-bottom: 1px solid gray;
     align-items: center;
-    min-height: 20vh;
+    min-height: 14vh;
+    padding-right: 20px;
 }
 
 .stored-item_buy {

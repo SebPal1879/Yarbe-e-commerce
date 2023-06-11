@@ -130,7 +130,7 @@ main{
     height: 350px;
     width: 300px;
     padding: 30px;
-    
+    object-fit: contain;  
 }
 .producto-detalle{
     background-color:#085088;

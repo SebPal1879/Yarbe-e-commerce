@@ -46,17 +46,18 @@ var card = document.getElementById("methodCard");
 var cash = document.getElementById("methodCash");
 
 if (storedCartItems[0].mediop == 1) {
-    PSE.innerHTML = "";
-    card.innerHTML = "";
     pmtMt.innerHTML = "";
     pmtMt2.innerHTML = "";
-    var div = document.createElement("div");
+    PSE.innerHTML = "";
+    card.innerHTML = "";
+    console.log("lunita");
     cash.innerHTML = "";
-    cash.innerHTML = `<h6>Cash</h6>
+    var div = document.createElement("div");
+    div.innerHTML = `<h6>Cash</h6>
                                     <div class="d-flex row">
                                         <div class="mb-3 inputuna">
                                             <label for="basic-url" class="form-label">Select where you are paying</label>
-                                            <select class="form-select" aria-label="Default select example" id="lista"required>
+                                            <select class="form-select" aria-label="Default select example" required>
                                                 <option selected disabled value="">Choose...</option>
                                                 <option value="Efecty">Efecty</option>
                                                 <option value="Baloto">Baloto</option>
@@ -65,13 +66,16 @@ if (storedCartItems[0].mediop == 1) {
                             
                                         <div class="mb-3 inputuna">
                                             <label for="basic-url" class="form-label">Enter your email address</label>
-                                            <input type="text" class="form-control" placeholder="email@domain.com" pattern="[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}" id="email" required>
+                                            <input type="text" class="form-control" placeholder="email@domain.com" pattern="[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}"  required>
                                             <div class="invalid-feedback">
                                                 Please enter a valid email address
                                             </div>
                                         </div>
                                     </div>`;
     cash.classList.remove("disabled");
+    cash.append(div);
+} else {
+    cash.innerHTML = "";
 }
 
 lista.addEventListener("change", function () {
@@ -94,7 +98,8 @@ pmtMt.addEventListener("change", function () {
 
         var div = document.createElement("div");
         card.innerHTML = "";
-        PSE.innerHTML = `<h6>PSE</h6>
+        PSE.innerHTML = `
+        <h6>PSE</h6>
         <div class="d-flex row">
             <div class="mb-3 inputuna">
                 <label for="basic-url" class="form-label">Select your bank</label>
@@ -160,22 +165,21 @@ pmtMt.addEventListener("change", function () {
 
         </section>`;
         card.classList.remove("disabled");
-
+        inputNumber();
     }
 });
 
-//Exp date
 var month = document.getElementById("month");
 var year = document.getElementById("year");
 var email = document.getElementById("email");
 
-email.addEventListener("keydown", function () {
-    if (!correuna.test(email.value)) {
-        preventDefault();
-        stopPropagation();
-        console.log("juna");
-    }
-});
+// email.addEventListener("keydown", function (e) {
+//     if (!correuna.test(email.value)) {
+//         e.preventDefault();
+//         e.stopPropagation();
+//         console.log("juna");
+//     }
+// });
 
 (() => {
     'use strict'
@@ -186,9 +190,9 @@ email.addEventListener("keydown", function () {
     // Loop over them and prevent submission
     Array.from(forms).forEach(form => {
         form.addEventListener('submit', event => {
-            if (!form.checkValidity() || (correuna.test(email.value))) {
+            if (!form.checkValidity()) {
                 console.log("tardunas")
-                console.log(email.value);
+                // console.log(email.value);
                 event.preventDefault()
                 event.stopPropagation()
             }
@@ -199,6 +203,7 @@ email.addEventListener("keydown", function () {
             // if (year.value == 6) {
             //     console.log("tardunitas");
             // }
+            console.log("Validado");
             form.classList.add('was-validated')
         }, false)
     })

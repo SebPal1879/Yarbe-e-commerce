@@ -277,12 +277,20 @@ function updateAddBtns() {
 
 let cartProducts;
 let cartProductsLS = localStorage.getItem("items-in-cart");
-console.log(cartProductsLS);
+console.log(itemToView);
+
+if (cartProducts = []){
+    console.log("lunagrande");
+    var products = [];
+    products.push(itemToView);
+    console.log(products);
+}
 
 if (cartProductsLS) {
     cartProducts = JSON.parse(cartProductsLS);
     console.log(cartProducts);
     updateTotalCartItems();
+    
 } else {
     cartProducts = [];
     cartProducts = JSON.parse(cartProductsLS);
@@ -316,9 +324,9 @@ function disable(){
 function addToCart(e) {
     const uid = e.currentTarget.id;
     console.log(uid);
-    const addedProduct = cartProducts.find(producto => producto.id === uid);
+    const addedProduct = products.find(producto => producto.id === uid);
     console.log("Nonas");
-    console.log(cartProducts)
+    console.log(addedProduct);
     // btnsAddToCart.forEach(button => {
     //     console.log(button.matches('.Cash') == false);
     //     console.log(mt);
