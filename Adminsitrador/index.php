@@ -203,22 +203,23 @@ $conexion = conexion();
                         </div>
 
                         <div class="modal-body">
+                            <div id="error-message" style="display: none;"></div>
                             <label>Id</label>
-                            <input type="text" id="idp3" name="idp" class="form-control input-sm">
+                            <input type="text" id="idp3" name="idp" class="form-control input-sm" required>
                             <label>Title</label>
-                            <input type="text" id="titlep3" name="titlep" class="form-control input-sm">
+                            <input type="text" id="titlep3" name="titlep" class="form-control input-sm" required>
                             <label id="fichero" for="imagep3">Image</label>
                             <input type='file' id='imagep3' name="file" class="form-control input-sm"
-                                accept=".jpg, .jpeg, .png" onchange="processSelectedFiles(this)">
+                                accept=".jpg, .jpeg, .png" onchange="processSelectedFiles(this)" required>
                             <label>Code</label>
-                            <input type="text" id="codep3" name="codep" class="form-control input-sm">
+                            <input type="text" id="codep3" name="codep" class="form-control input-sm" required>
                             <label>Content</label>
-                            <input type="text" id="contentp3" name="contentp" class="form-control input-sm">
-                            <label>Cost</label>
-                            <input type="number" id="costp3" name="costp" class="form-control input-sm">
+                            <input type="text" id="contentp3" name="contentp" class="form-control input-sm" required>
+                            <label>Cost: only numeric values</label>
+                            <input type="number" id="costp3" name="costp" class="form-control input-sm" required>
                             <label>Name Category</label>
-                            <select id="namep3" class="form-select" aria-label="Default select example">
-                                <option selected>Open this select menu</option>
+                            <select id="namep3" class="form-select" aria-label="Default select example" required>
+                                <option value="none" selected>Open this select menu</option>
                                 <?php
                                 $sql = "SELECT idc, namec from categoria";
                                 $result = mysqli_query($conexion, $sql);
@@ -232,8 +233,8 @@ $conexion = conexion();
                                 ?>
                             </select>
                             <label>Payment method</label>
-                            <select id="paymentp3" class="form-select" aria-label="Default select example">
-                                <option selected>Open this select menu</option>
+                            <select id="paymentp3" class="form-select" aria-label="Default select example" required>
+                                <option value="none" selected>Open this select menu</option>
                                 <?php
                                 $sql = "SELECT idm, namem from metodop";
                                 $result = mysqli_query($conexion, $sql);
@@ -267,26 +268,26 @@ $conexion = conexion();
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <input type="text" hidden="" id="idpa" name="">
+                            <input type="text" hidden="" id="idpa" name="" required>
                             <label>Id</label>
-                            <input type="text" id="idp" name="idp" class="form-control input-sm">
+                            <input type="text" id="idp" name="idp" class="form-control input-sm" required>
                             <label>Title</label>
-                            <input type="text" id="titlep" name="titlep" class="form-control input-sm">
+                            <input type="text" id="titlep" name="titlep" class="form-control input-sm" required>
                             <div>
                                 <label>Imagen</label>
-                                <input type="text" id="titlepn" name="titlepn" class="form-control input-sm">
+                                <input type="text" id="titlepn" name="titlepn" class="form-control input-sm" readonly>
                                 <label for="imagep">Eddit Image</label>
                                 <input type="file" id="imagep" name="imagep" class="form-control input-sm"
                                     accept=".jpg, .jpeg, .png" onchange="processSelectedFiles(this)">
                             </div>
                             <label>Code</label>
-                            <input type="text" id="codep" name="codep" class="form-control input-sm">
+                            <input type="text" id="codep" name="codep" class="form-control input-sm" required>
                             <label>Content</label>
-                            <input type="text" id="contentp" name="contentp" class="form-control input-sm">
-                            <label>Cost</label>
-                            <input type="number" id="costp" name="costp" class="form-control input-sm">
+                            <input type="text" id="contentp" name="contentp" class="form-control input-sm" required>
+                            <label>Cost: only numeric values</label>
+                            <input type="number" id="costp" name="costp" class="form-control input-sm" required>
                             <label>Name Category</label>
-                            <input type="text" id="namep" name="namep" class="form-control input-sm">
+                            <input type="text" id="namep" name="namep" class="form-control input-sm" readonly>
                             <select id="namepx" class="form-select" aria-label="Default select example">
                                 <option selected>Open this select menu</option>
                                 <?php
@@ -302,7 +303,7 @@ $conexion = conexion();
                                 ?>
                             </select>
                             <label>Payment method</label>
-                            <input type="text" id="paymentp" name="paymentp" class="form-control input-sm">
+                            <input type="text" id="paymentp" name="paymentp" class="form-control input-sm" readonly>
                             <select id="paymentpx" class="form-select" aria-label="Default select example">
                                 <option selected>Open this select menu</option>
                                 <?php
@@ -363,23 +364,67 @@ $conexion = conexion();
 <script type="text/javascript">
     $(document).ready(function () {
         $('#guradarnuevoc').click(function () {
-            name = $('#namec1').val();
-            agregarCategoria(name);
+            var nombre = $('#namec1').val().trim();
+            var caracteresEspeciales = /[.-\/&%$#]/;
+
+            if (nombre === '' || caracteresEspeciales.test(nombre)) {
+                $('#namec1').addClass('campo-invalido');
+                alert('The field "Name" is invalid.');
+                return false;
+            } else {
+                $('#namec1').removeClass('campo-invalido');
+                agregarCategoria(nombre);
+                $('#namec1').val('');
+            }
         });
 
         $('#actualizardatosc').click(function () {
-            actualizaDatos();
+            var nombre = $('#namece').val().trim();
+            var caracteresEspeciales = /[.-\/&%$#]/;
+
+            if (nombre === '' || caracteresEspeciales.test(nombre)) {
+                $('#namece').addClass('campo-invalido');
+                alert('The field "Name" is invalid.');
+                return false;
+            } else {
+                $('#namece').removeClass('campo-invalido');
+                actualizaDatos();
+                $('#namec1').val('');
+            }
         });
     });
+
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#guradarnuevom').click(function () {
-            name = $('#namem1').val();
-            agregarMetodop(name);
+            var nombre = $('#namem1').val().trim();
+            var caracteresEspeciales = /[.-\/&%$#]/;
+
+            if (nombre === '' || caracteresEspeciales.test(nombre)) {
+                $('#namem1').addClass('campo-invalido');
+                alert('The field "Name" is invalid.');
+                return false;
+            } else {
+                $('#namem1').removeClass('campo-invalido');
+                agregarMetodop(nombre);
+                $('#namem1').val('');
+            }
         });
+
         $('#actualizardatosm').click(function () {
-            actualizarDatosm();
+            var nombre = $('#nameme').val().trim();
+            var caracteresEspeciales = /[.-\/&%$#]/;
+
+            if (nombre === '' || caracteresEspeciales.test(nombre)) {
+                $('#nameme').addClass('campo-invalido');
+                alert('The field "Name" is invalid.');
+                return false;
+            } else {
+                $('#nameme').removeClass('campo-invalido');
+                actualizarDatosm();
+                $('#namem1').val('');
+            }
         });
 
     });
@@ -387,19 +432,70 @@ $conexion = conexion();
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#guardarnuevop').click(function () {
-            id1 = $('#idp3').val();
-            title1 = $('#titlep3').val();
-            image1 = processSelectedFiles(imagep3);
-            code1 = $('#codep3').val();
-            content1 = $('#contentp3').val();
-            cost1 = $('#costp3').val();
-            name1 = $('#namep3').val();
-            payment1 = $('#paymentp3').val();
-            agregarProductos(id1, title1, image1, code1, content1, cost1, name1, payment1);
+
+        $('#guardarnuevop').click(function (event) {
+            event.preventDefault(); // Evita que se realice el envío del formulario
+
+            var camposValidos = validarCampos();
+
+            if (camposValidos) {
+                // Aquí puedes realizar la acción para crear el nuevo producto
+                id1 = $('#idp3').val();
+                title1 = $('#titlep3').val();
+                image1 = processSelectedFiles(imagep3);
+                code1 = $('#codep3').val();
+                content1 = $('#contentp3').val();
+                cost1 = $('#costp3').val();
+                name1 = $('#namep3').val();
+                payment1 = $('#paymentp3').val();
+                agregarProductos(id1, title1, image1, code1, content1, cost1, name1, payment1);
+
+                $('#idp3').val('');
+                $('#titlep3').val('');
+                $('#imagep3').val('');
+                $('#codep3').val('');
+                $('#contentp3').val('');
+                $('#costp3').val('');
+                $('#namep3').val('Open this select menu');
+                $('#paymentp3').val('Open this select menu');
+
+                $('#modalNuevop').modal('hide');
+            } else {
+                // Mostrar campos faltantes dentro del formulario
+                var errorMessage = "Please complete the required fields.";
+                $('#error-message').text(errorMessage).show();
+
+                // Agregar clase CSS para resaltar los campos requeridos que faltan
+                $('input:required, select:required').each(function () {
+                    if ($(this).val() === '') {
+                        $(this).addClass('campo-faltante');
+                    }
+                });
+
+                // Enfoque de desplazamiento suave (smooth scrolling) al primer campo faltante
+                var firstMissingField = $('.campo-faltante:first');
+                if (firstMissingField.length) {
+                    $('html, body').animate({
+                        scrollTop: firstMissingField.offset().top - 100
+                    }, 500);
+                }
+            }
         });
+
+
+
+
+
         $('#actualizardatosp').click(function () {
             actualizarDatosp();
+            $('#idp3').val('');
+                $('#titlep3').val('');
+                $('#imagep3').val('');
+                $('#codep3').val('');
+                $('#contentp3').val('');
+                $('#costp3').val('');
+                $('#namep3').val('Open this select menu');
+                $('#paymentp3').val('Open this select menu');
         });
         document.getElementById('modal-body').reset();
     });
@@ -408,15 +504,15 @@ $conexion = conexion();
 <script>
     var boton = document.getElementById("products");
 
-boton.addEventListener("click", function() {
-  window.location.href = "../Adminsitrador/index.php";
-});
+    boton.addEventListener("click", function () {
+        window.location.href = "../Adminsitrador/index.php";
+    });
 </script>
 
 <script>
-     var boton = document.getElementById("users");
+    var boton = document.getElementById("users");
 
-    boton.addEventListener("click", function() {
-    window.location.href = "../Adminsitrador/user.php";
+    boton.addEventListener("click", function () {
+        window.location.href = "../Adminsitrador/user.php";
     });
 </script>

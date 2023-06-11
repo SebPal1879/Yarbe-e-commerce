@@ -232,4 +232,6 @@ main{
     padding-right: 20px;
     padding-top: 20px;
 }
-
+.campo-faltante {
+    border: 2px solid blueviolet;
+}
