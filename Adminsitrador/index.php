@@ -491,6 +491,7 @@ $conexion = conexion();
             $('#idp3').val('');
                 $('#titlep3').val('');
                 $('#imagep3').val('');
+                $('#imagep').val('');
                 $('#codep3').val('');
                 $('#contentp3').val('');
                 $('#costp3').val('');
@@ -498,6 +499,7 @@ $conexion = conexion();
                 $('#paymentp3').val('Open this select menu');
         });
         document.getElementById('modal-body').reset();
+
     });
 </script>
 

@@ -250,13 +250,10 @@ function actualizarDatosp() {
 	image2=$('#imagep').val();
 	var image3 = processSelectedFiles2($('#imagep')[0]);
 
-    alert("Prueba " + image3);
 
     if (image3 != 0) {
         image1 = image3;
-    } else {
-        alert("Prueba2 " + image1);
-    }
+    } 
 
     if (payment2 != payment1 && payment2 != "Open this select menu") {
         payment1 = payment2;
