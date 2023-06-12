@@ -16,12 +16,6 @@ const BtotalCartItems = document.querySelector("#cart-items");
 
 
 function loadItemInfo() {
-    if(itemToView.mediop == 1){
-        var a = "Cash";
-    }
-    else{
-        var a = "Electronic transaction";
-    }
     const div = document.createElement("div");
     div.classList.add("container");
     div.innerHTML = `
@@ -44,7 +38,7 @@ function loadItemInfo() {
 
                         <div class="info d-flex justify-content-between">
                             <p><strong>Category:</strong></p>
-                            <p>${itemToView.categoria.name}</p>
+                            <p>${itemToView.namec}</p>
                         </div>    
 
                         <div class="info d-flex justify-content-between">
@@ -60,15 +54,15 @@ function loadItemInfo() {
 
                         <div class="pmt-met">
                             <article>
-                                <h5>Payment method available: ${a}</h5>
+                                <h5>Payment method available: ${itemToView.mediop}</h5>
                             </article>
 
                         </div>
 
                         <div class="btns">
-                            <button class="button agregar-producto" id="${itemToView.id}">Add to cart</button>
+                            <button class="button agregar-producto" id="${itemToView.idname}">Add to cart</button>
                             <h6>or</h6>
-                            <a href="../checkout/cart.html" style="text-decoration: none"><button class="button agregar-producto" id="${itemToView.id}">Buy now</button></a>
+                            <a href="../checkout/cart.html" style="text-decoration: none"><button class="button agregar-producto" id="${itemToView.idname}">Buy now</button></a>
                             
                         </div>
 
@@ -81,7 +75,7 @@ function loadItemInfo() {
             `;
 
     item.append(div);
-    console.log(itemToView.id);
+    console.log(itemToView.idname);
     updateAddBtns()
 }
 
@@ -143,7 +137,7 @@ function disable(){
 
     btnsAddToCart.forEach(button => {
         console.log(button.id);
-        if (button.id == itemToView.id){
+        if (button.id == itemToView.idname){
             button.disabled = true;
             button.classList.add("disabledBtn");
         }
@@ -153,7 +147,7 @@ function disable(){
 function addToCart(e) {
     const uid = e.currentTarget.id;
     console.log(uid);
-    const addedProduct = products.find(producto => producto.id === uid);
+    const addedProduct = products.find(producto => producto.idname === uid);
     console.log("Nonas");
     console.log(addedProduct);
     // btnsAddToCart.forEach(button => {
@@ -180,8 +174,8 @@ function addToCart(e) {
 
     // });
 
-    if (cartProducts.some(producto => producto.id === uid)) {
-        const index = cartProducts.findIndex(producto => producto.id === uid);
+    if (cartProducts.some(producto => producto.idname === uid)) {
+        const index = cartProducts.findIndex(producto => producto.idname === uid);
         cartProducts[index].cantidad++;
     } else {
         addedProduct.cantidad = 1;
