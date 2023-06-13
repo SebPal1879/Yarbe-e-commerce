@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-06-2023 a las 05:06:50
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 13-06-2023 a las 13:39:02
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `categoria` (
   `idc` int(11) NOT NULL,
   `namec` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `categoria`
+--
+
+INSERT INTO `categoria` (`idc`, `namec`) VALUES
+(1, 'Cardiovascular'),
+(2, 'Hematology'),
+(3, 'Oncology'),
+(4, 'Hormonal'),
+(18, 'Eye Conditions');
 
 -- --------------------------------------------------------
 
@@ -46,7 +57,7 @@ CREATE TABLE `compra` (
   `cantidad` int(11) NOT NULL,
   `usuarios_Id` int(11) NOT NULL,
   `prodcomprado` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `compra`
@@ -86,7 +97,15 @@ INSERT INTO `compra` (`ordernum`, `address`, `mediop`, `total`, `cantidad`, `usu
 CREATE TABLE `metodop` (
   `idm` int(11) NOT NULL,
   `namem` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `metodop`
+--
+
+INSERT INTO `metodop` (`idm`, `namem`) VALUES
+(1, 'Cash'),
+(2, 'Electronic transaction');
 
 -- --------------------------------------------------------
 
@@ -104,7 +123,7 @@ CREATE TABLE `producto` (
   `cost` int(9) NOT NULL,
   `namec` varchar(30) NOT NULL,
   `mediop` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -114,15 +133,16 @@ INSERT INTO `producto` (`idp`, `idname`, `titulo`, `imagen`, `code`, `content`, 
 (1, 'Cardiovascular01', 'Natto-K', 'Nattok.jpg', 'ENZ-22090', '90 unid', 217211, 'Cardiovascular', 'Electronic transaction'),
 (2, 'Cardiovascular02', 'Clinical Cardio-6', 'Clininical Cardio-6.jpg', 'PRT-13383', '90 unid', 220211, 'Cardiovascular', 'Electronic transaction'),
 (3, 'Cardiovascular03', 'HeartBeat', 'HeortBeat.jpg', 'NAP-47421', '90 unid', 230345, 'Cardiovascular', 'Electronic transaction'),
-(4, 'Eye01', 'Natural Vision', 'NaturalVision.jpg', 'DRB-00311', '60 unid', 71646, 'Eye Conditions', 'Cash'),
+(4, 'Eye01', 'Natural Vision', 'NaturalVision.jpg', 'DRB-00311', '60 unid', 71646, 'Eye Conditions', 'Electronic transaction'),
 (5, 'Eye02', 'Eye Pressure Support', 'Eye Pressure Support.jpg', 'LEX-15143', '30 unid', 120126, 'Eye Conditions', 'Cash'),
-(6, 'Eye03', 'Mascular Vision', 'Mascular Vision.jpg', 'NOW-03402', '90 unid', 117225, 'Eye Conditions', 'Cash'),
+(6, 'Eye03', 'Mascular Vision', 'Mascular Vision.jpg', 'NOW-03402', '90 unid', 117225, 'Eye Conditions', 'Electronic transaction'),
 (7, 'Hematologia01', 'Vessel Due F', 'Vesseñ Due F.jpg', '428M98', 'Box 10 Ampoules', 640000, 'Hematology', 'Electronic transaction'),
 (8, 'Hematologia02', 'Bolentax', 'Bolentax.jpg', '750112', 'Box With 2', 987970, 'Hematology', 'Cash'),
-(9, 'Hormonal01', 'Hormonious', '../stock/Hormonious.jpg', 'ENZ-22090', 'ORA-00758', 176389, 'Hormonal', 'Cash'),
+(9, 'Hormonal01', 'Hormonious', 'Hormonious.jpg', 'ENZ-22090', 'ORA-00758', 176389, 'Hormonal', 'Electronic transaction'),
 (10, 'Hormonal02', 'GHR Complex', 'GHRComplex.jpg', '7083', 'Mg 180 Cap', 199900, 'Hormonal', 'Electronic transaction'),
 (11, 'Oncologia01', 'Brineura', 'Brineura.jpg', '20142418-1', 'Injectable x 2', 82447, 'Oncology', 'Electronic transaction'),
-(12, 'Oncologia02', 'Berinert', 'Berinert.jpg', '20094884-1', 'Inhibitor 500UI/1U', 748345, 'Oncology', 'Electronic transaction');
+(12, 'Oncologia02', 'Berinert', 'Berinert.jpg', '20094884-1', 'Inhibitor 500UI/1U', 748345, 'Oncology', 'Electronic transaction'),
+(86, 'Imukin', 'Clinigen Helthcare', 'Imukin.jpg', '211873-1', 'Líquido/Sólido - Inyectable 0,6 mg', 274895, 'Oncology', 'Cash');
 
 -- --------------------------------------------------------
 
@@ -132,8 +152,16 @@ INSERT INTO `producto` (`idp`, `idname`, `titulo`, `imagen`, `code`, `content`, 
 
 CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
-  `descripcion` varchar(250) NOT NULL
+  `descripcion` varchar(250) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`id`, `descripcion`) VALUES
+(1, 'Administrator'),
+(2, 'Customer');
 
 -- --------------------------------------------------------
 
@@ -148,7 +176,16 @@ CREATE TABLE `usuarios` (
   `mail` varchar(100) NOT NULL,
   `password` varchar(20) NOT NULL,
   `role` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`Id`, `name`, `idc`, `mail`, `password`, `role`) VALUES
+(1, 'Sebastian', 12345678, 'sebastian@gmail.com', '123456', 1),
+(3, 'jorge', 12346578, 'jorge@gmail.com', '123456', 1),
+(4, 'David', 123654785, 'david@gmail.com', '000000', 2);
 
 --
 -- Índices para tablas volcadas
@@ -192,19 +229,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `idc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `metodop`
 --
 ALTER TABLE `metodop`
-  MODIFY `idm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `idm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `idp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -216,7 +253,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -3,7 +3,7 @@ var a;
 
 $.ajax({
     type: "GET",
-    url: "http://localhost/Yarbe-e-commerce/Adminsitrador/php/getproductos.php",
+    url: "http://localhost/Yarbe/Yarbe-e-commerce/Adminsitrador/php/getproductos.php",
     data: "data",
     dataType: "json",
     success: function (data) {

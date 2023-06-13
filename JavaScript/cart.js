@@ -31,7 +31,7 @@ function loadCartProducts() {
     
     
                         <div class="item-pic col-3">
-                            <img src="${producto.imagen}" alt="">
+                            <img src="../stock/${producto.imagen}" alt="">
                             <h4>${producto.titulo}</h4>
                         </div>
     
