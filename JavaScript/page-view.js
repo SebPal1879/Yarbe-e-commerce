@@ -25,7 +25,7 @@ function loadItemInfo() {
             </div>
             <div class="row align-items-center">
                 <section class="col-9 d-flex justify-content-center product-pic">
-                    <img src="${itemToView.imagen}" alt="Nombre del producto">
+                <img class="producto-imagen" src="../stock/${itemToView.imagen}" alt="${itemToView.titulo}">   
                 </section>
                 <section class="product-details col-3 py-2">
                     <div>

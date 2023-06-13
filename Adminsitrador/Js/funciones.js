@@ -18,6 +18,21 @@ function agregarCategoria(name) {
 	});
 }
 
+//Funcion validar campo no vacio de Categoria
+function validarCampo() {
+	var nombre = $('#namec1').val().trim();
+	var caracteresEspeciales = /[.-\/&%$#]/;
+  
+	if (nombre === '' || caracteresEspeciales.test(nombre)) {
+	  $('#namec1').addClass('campo-invalido');
+	  return false;
+	} else {
+	  $('#namec1').removeClass('campo-invalido');
+	  return true;
+	}
+  }
+  
+
 function agregaform(datos) {
 
 	d = datos.split('||');
@@ -98,6 +113,20 @@ function agregarMetodop(name) {
 		}
 	});
 }
+
+//Funcion validar campo no vacio de Categoria
+function validarCampo() {
+	var nombre = $('#namem1').val().trim();
+	var caracteresEspeciales = /[.-\/&%$#]/;
+  
+	if (nombre === '' || caracteresEspeciales.test(nombre)) {
+	  $('#namem1').addClass('campo-invalido');
+	  return false;
+	} else {
+	  $('#namem1').removeClass('campo-invalido');
+	  return true;
+	}
+  }
 
 function agregaform1(datos) {
 
@@ -218,20 +247,21 @@ function actualizarDatosp() {
 	payment1=$('#paymentp').val(); 
 	payment2=$('#paymentpx').val();
 	name2=$('#namepx').val();
+	image2=$('#imagep').val();
+	var image3 = processSelectedFiles2($('#imagep')[0]);
 
-	if(imagep != ""||imagep != null){
 
-		image1=processSelectedFiles2(imagep);
-	}
+    if (image3 != 0) {
+        image1 = image3;
+    } 
 
-	if(payment2 != payment1 && payment2 != "Open this select menu" ){
-		payment1=$('#paymentpx').val();;
-	}
+    if (payment2 != payment1 && payment2 != "Open this select menu") {
+        payment1 = payment2;
+    }
 
-	if(name2 != name1 && name2 != "Open this select menu"){
-		name1=$('#namepx').val();
-	}
-
+    if (name2 != name1 && name2 != "Open this select menu") {
+        name1 = name2;
+    }
 	
 
 	cadena = "&id0=" + id0 +
@@ -261,29 +291,99 @@ function actualizarDatosp() {
 }
 
 
-
-//funcion capturar solo el nombre
-function processSelectedFiles(fileInput){
-	var files = fileInput.files;
-		
-		var2 = files[0].name;
-
-	return var2;
+// Función para capturar solo el nombre del archivo
+function processSelectedFiles(fileInput) {
+    var files = fileInput.files;
+    var var2 = files[0].name;
+    return var2;
 }
-function processSelectedFiles2(fileInput){
-	var files = fileInput.files;
-	
-	if(files[0].name != null ||files[0].name != ""){
-	
-		var2 = files[0].name;
 
-	}else{
-		var2 = 0;
-	}
-
-		
-	return var2;
+function processSelectedFiles2(fileInput) {
+    var files = fileInput.files;
+    var var2 = (files[0] && files[0].name) || 0;
+    return var2;
 }
+
+//función para validar campos al momento de guardar nuevos productos
+function validarCampos() {
+    var id = $('#idp3').val();
+    var title = $('#titlep3').val();
+    var image = $('#imagep3').val();
+    var code = $('#codep3').val();
+    var content = $('#contentp3').val();
+    var cost = $('#costp3').val();
+    var name = $('#namep3').val();
+    var payment = $('#paymentp3').val();
+
+    var isValid = true; // Variable para rastrear la validez de los campos
+
+    // Verificar cada campo y resaltar los campos faltantes
+    if (id.trim() === '') {
+        $('#idp3').addClass('campo-faltante');
+        isValid = false;
+    } else {
+        $('#idp3').removeClass('campo-faltante');
+    }
+
+    if (title.trim() === '') {
+        $('#titlep3').addClass('campo-faltante');
+        isValid = false;
+    } else {
+        $('#titlep3').removeClass('campo-faltante');
+    }
+
+    if (image.trim() === '') {
+        $('#imagep3').addClass('campo-faltante');
+        isValid = false;
+    } else {
+        $('#imagep3').removeClass('campo-faltante');
+    }
+
+    if (code.trim() === '') {
+        $('#codep3').addClass('campo-faltante');
+        isValid = false;
+    } else {
+        $('#codep3').removeClass('campo-faltante');
+    }
+
+    if (content.trim() === '') {
+        $('#contentp3').addClass('campo-faltante');
+        isValid = false;
+    } else {
+        $('#contentp3').removeClass('campo-faltante');
+    }
+
+    if (cost.trim() === '') {
+        $('#costp3').addClass('campo-faltante');
+        isValid = false;
+    } else {
+        $('#costp3').removeClass('campo-faltante');
+    }
+
+    if (name.trim() === 'none' || name.trim() === '') {
+        $('#namep3').addClass('campo-faltante');
+        isValid = false;
+    } else {
+        $('#namep3').removeClass('campo-faltante');
+    }
+
+    if (payment.trim() === 'noen' || payment.trim() === '') {
+        $('#paymentp3').addClass('campo-faltante');
+        isValid = false;
+    } else {
+        $('#paymentp3').removeClass('campo-faltante');
+    }
+
+    if (!isValid) {
+        // Mostrar un mensaje o realizar alguna acción para indicar los campos faltantes
+        // ...
+
+        return false;
+    }
+
+    return true;
+}
+
 
 function preguntarSiNo2(id) {
 	alertify.confirm('Delete Data', 'Are you sure to delete this record?',

@@ -112,7 +112,6 @@ $conexion = conexion();
                             <h5 class="modal-title" id="exampleModalLabel">Add New User</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-
                         <div class="modal-body">
                             <label>Name</label>
                             <input type="text" id="Name" name="Name" class="form-control input-sm">
@@ -223,17 +222,73 @@ $conexion = conexion();
 <script type="text/javascript">
     $(document).ready(function () {
         $('#guradarnuevou').click(function () {
-            name = $('#Name').val();
-            id = $('#ID').val();
-            mail = $('#Mail').val();
-            password = $('#Password').val();
-            profile = $('#Profile').val();
+            var name = $('#Name').val().trim();
+            var id = $('#ID').val().trim();
+            var mail = $('#Mail').val().trim();
+            var password = $('#Password').val().trim();
+            var profile = $('#Profile').val();
+
+            // Validar campos vacíos
+            if (name === '' || id === '' || mail === '' || password === '' || profile === 'Open this select menu') {
+                alert('All fields must be filled out.');
+                return false;
+            }
+
+            // Validar caracteres especiales en nombre y contraseña
+            var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (specialChars.test(name) || specialChars.test(password)) {
+                alert('Fields cannot contain special characters.');
+                return false;
+            }
+
+            // Validar formato de correo electrónico
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(mail)) {
+                alert('Invalid email format.');
+                return false;
+            }
+
+            // Si todas las validaciones pasan, se puede guardar los datos
             agregarUsauario(name, id, mail, password, profile);
+            $('#Name').val('');
+            $('#ID').val('');
+            $('#Mail').val('');
+            $('#Password').val('');
+            $('#Profile').val('');
+
         });
 
         $('#actualizardatosu').click(function () {
+            var name = $('#Nameu').val().trim();
+            var id = $('#IDu2').val().trim();
+            var mail = $('#Mailu').val().trim();
+            var password = $('#Passwordu').val().trim();
+            var profile = $('#Profilex').val();
+
+            // Validar campos vacíos
+            if (name === '' || id === '' || mail === '' || password === '' || profile === 'Open Profile this select menu') {
+                alert('All fields must be filled out.');
+                return false;
+            }
+
+            // Validar caracteres especiales en nombre y contraseña
+            var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (specialChars.test(name) || specialChars.test(password)) {
+                alert('Fields cannot contain special characters.');
+                return false;
+            }
+
+            // Validar formato de correo electrónico
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(mail)) {
+                alert('Invalid email format.');
+                return false;
+            }
+
+            // Si todas las validaciones pasan, se puede actualizar los datos
             actualizadatosu();
         });
+
     });
 </script>
 

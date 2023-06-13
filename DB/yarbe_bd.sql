@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-06-2023 a las 20:15:04
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 13-06-2023 a las 05:06:50
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,18 +30,52 @@ SET time_zone = "+00:00";
 CREATE TABLE `categoria` (
   `idc` int(11) NOT NULL,
   `namec` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
 
 --
--- Volcado de datos para la tabla `categoria`
+-- Estructura de tabla para la tabla `compra`
 --
 
-INSERT INTO `categoria` (`idc`, `namec`) VALUES
-(1, 'Cardiovascular'),
-(2, 'Hematology'),
-(3, 'Oncology'),
-(4, 'Hormonal'),
-(18, 'Eye Conditions');
+CREATE TABLE `compra` (
+  `ordernum` int(11) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `mediop` varchar(45) NOT NULL,
+  `total` double NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `usuarios_Id` int(11) NOT NULL,
+  `prodcomprado` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `compra`
+--
+
+INSERT INTO `compra` (`ordernum`, `address`, `mediop`, `total`, `cantidad`, `usuarios_Id`, `prodcomprado`) VALUES
+(0, '', '0', 0, 0, 0, NULL),
+(0, '', '0', 0, 0, 0, NULL),
+(0, '', '0', 0, 0, 0, NULL),
+(18, 'asd dsa AU (123)', '0', 657633, 0, 0, NULL),
+(0, '', '0', 0, 0, 0, NULL),
+(3, 'asd dsa AU (123)', '0', 657633, 0, 0, NULL),
+(0, '', '0', 0, 0, 0, NULL),
+(1, 'CL Lunaria AF (6)', '0', 657633, 0, 0, NULL),
+(17, 'CL Lunaria AF (6)', '0', 117225, 0, 0, NULL),
+(3, '123 123 AU (123)', '0', 217211, 0, 0, NULL),
+(0, '', '0', 0, 0, 0, NULL),
+(16, '123 123 BS (123)', '0', 71646, 0, 0, NULL),
+(7, '123 123 BS (123)', '0', 71646, 0, 0, NULL),
+(23, '123 123 UA (123)', '0', 71646, 0, 0, NULL),
+(14, '85678 6578 AW (675856)', '0', 230345, 0, 0, NULL),
+(17, '85678 6578 AW (675856)', '0', 230345, 0, 0, NULL),
+(0, '', '0', 0, 0, 0, NULL),
+(0, '', '0', 0, 0, 0, NULL),
+(0, '', '0', 0, 0, 0, NULL),
+(28, '85678 6578 AW (675856)', '0', 230345, 0, 0, NULL),
+(13, '85678 6578 AW (675856)', '0', 230345, 0, 0, NULL),
+(0, '', '0', 0, 0, 0, NULL),
+(27, '85678 6578 AW (675856)', '0', 230345, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -52,15 +86,7 @@ INSERT INTO `categoria` (`idc`, `namec`) VALUES
 CREATE TABLE `metodop` (
   `idm` int(11) NOT NULL,
   `namem` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `metodop`
---
-
-INSERT INTO `metodop` (`idm`, `namem`) VALUES
-(1, 'Cash'),
-(2, 'Electronic transaction');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -78,7 +104,7 @@ CREATE TABLE `producto` (
   `cost` int(9) NOT NULL,
   `namec` varchar(30) NOT NULL,
   `mediop` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -93,7 +119,7 @@ INSERT INTO `producto` (`idp`, `idname`, `titulo`, `imagen`, `code`, `content`, 
 (6, 'Eye03', 'Mascular Vision', 'Mascular Vision.jpg', 'NOW-03402', '90 unid', 117225, 'Eye Conditions', 'Cash'),
 (7, 'Hematologia01', 'Vessel Due F', 'Vesseñ Due F.jpg', '428M98', 'Box 10 Ampoules', 640000, 'Hematology', 'Electronic transaction'),
 (8, 'Hematologia02', 'Bolentax', 'Bolentax.jpg', '750112', 'Box With 2', 987970, 'Hematology', 'Cash'),
-(9, 'Hormonal01', 'Hormonious', 'Hormonious.jpg', 'ENZ-22090', 'ORA-00758', 176389, 'Hormonal', 'Cash'),
+(9, 'Hormonal01', 'Hormonious', '../stock/Hormonious.jpg', 'ENZ-22090', 'ORA-00758', 176389, 'Hormonal', 'Cash'),
 (10, 'Hormonal02', 'GHR Complex', 'GHRComplex.jpg', '7083', 'Mg 180 Cap', 199900, 'Hormonal', 'Electronic transaction'),
 (11, 'Oncologia01', 'Brineura', 'Brineura.jpg', '20142418-1', 'Injectable x 2', 82447, 'Oncology', 'Electronic transaction'),
 (12, 'Oncologia02', 'Berinert', 'Berinert.jpg', '20094884-1', 'Inhibitor 500UI/1U', 748345, 'Oncology', 'Electronic transaction');
@@ -106,16 +132,8 @@ INSERT INTO `producto` (`idp`, `idname`, `titulo`, `imagen`, `code`, `content`, 
 
 CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
-  `descripcion` varchar(250) COLLATE utf8_spanish_ci NOT NULL
+  `descripcion` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `roles`
---
-
-INSERT INTO `roles` (`id`, `descripcion`) VALUES
-(1, 'Administrator'),
-(2, 'Customer');
 
 -- --------------------------------------------------------
 
@@ -130,16 +148,7 @@ CREATE TABLE `usuarios` (
   `mail` varchar(100) NOT NULL,
   `password` varchar(20) NOT NULL,
   `role` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`Id`, `name`, `idc`, `mail`, `password`, `role`) VALUES
-(1, 'Sebastian', 12345678, 'sebastian@gmail.com', '123456', 1),
-(3, 'jorge', 12346578, 'jorge@gmail.com', '123456', 1),
-(4, 'David', 123654785, 'david@gmail.com', '000000', 2);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tablas volcadas

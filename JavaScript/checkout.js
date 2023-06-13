@@ -7,7 +7,25 @@ const cartFilled = document.querySelector("#item-display");
 storedCartItems = JSON.parse(storedCartItems);
 console.log(storedCartItems[0].mediop);
 
+const form = document.getElementById('lunita');
 
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const obj = Object.fromEntries(fd);
+    // const address;
+    console.log("item");
+    for (item of fd) {
+        console.log(item);
+        // address =
+    }
+    console.log(obj);
+    const datunas = JSON.stringify(obj);
+    localStorage.setItem('form', datunas);
+    console.log(datunas);
+    window.location.href = "./thanks.html"
+
+})
 // var invalidCharsName = [
 //     1,2,3,4,5,6,7,8,9,0
 // ];
@@ -45,7 +63,10 @@ var PSE = document.getElementById("methodPSE");
 var card = document.getElementById("methodCard");
 var cash = document.getElementById("methodCash");
 
-if (storedCartItems[0].mediop == 1) {
+console.log("monach");
+console.log(storedCartItems[0].mediop);
+
+if (storedCartItems[0].mediop == "Cash") {
     pmtMt.innerHTML = "";
     pmtMt2.innerHTML = "";
     PSE.innerHTML = "";
@@ -57,7 +78,7 @@ if (storedCartItems[0].mediop == 1) {
                                     <div class="d-flex row">
                                         <div class="mb-3 inputuna">
                                             <label for="basic-url" class="form-label">Select where you are paying</label>
-                                            <select class="form-select" aria-label="Default select example" required>
+                                            <select class="form-select" name="bankselect" aria-label="Default select example" required>
                                                 <option selected disabled value="">Choose...</option>
                                                 <option value="Efecty">Efecty</option>
                                                 <option value="Baloto">Baloto</option>
@@ -66,7 +87,7 @@ if (storedCartItems[0].mediop == 1) {
                             
                                         <div class="mb-3 inputuna">
                                             <label for="basic-url" class="form-label">Enter your email address</label>
-                                            <input type="text" class="form-control" placeholder="email@domain.com" pattern="[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}"  required>
+                                            <input type="text" name="cashemail" class="form-control" placeholder="email@domain.com" pattern="[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}"  required>
                                             <div class="invalid-feedback">
                                                 Please enter a valid email address
                                             </div>
@@ -101,24 +122,26 @@ pmtMt.addEventListener("change", function () {
         PSE.innerHTML = `
         <h6>PSE</h6>
         <div class="d-flex row">
-            <div class="mb-3 inputuna">
-                <label for="basic-url" class="form-label">Select your bank</label>
-                <select class="form-select" aria-label="Default select example" id="lista"required>
-                    <option selected disabled value="">Choose...</option>
-                    <option value="Davivienda">Davivienda</option>
-                    <option value="Bancolombia">Bancolombia</option>
-                    <option value="Scotiabank Colpatria">Scotiabank Colpatria</option>
-                </select>
-            </div>
+        <div class="mb-3 inputuna">
+            <label for="basic-url" class="form-label">Select your bank</label>
+            <select class="form-select" name="bank" aria-label="Default select example" id="lista"
+                required>
+                <option selected disabled value="">Choose...</option>
+                <option value="Davivienda">Davivienda</option>
+                <option value="Bancolombia">Bancolombia</option>
+                <option value="Scotiabank Colpatria">Scotiabank Colpatria</option>
+            </select>
+        </div>
 
-            <div class="mb-3 inputuna">
-                <label for="basic-url" class="form-label">Enter your email address</label>
-                <input type="text" class="form-control" placeholder="email@domain.com" pattern="[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}" id="email" required>
-                <div class="invalid-feedback">
-                    Please enter a valid email address
-                </div>
+        <div class="mb-3 inputuna">
+            <label for="basic-url" class="form-label">Enter your email address</label>
+            <input type="text" name="pseemail" class="form-control" placeholder="email@domain.com"
+                pattern="[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}" id="email" required>
+            <div class="invalid-feedback">
+                Please enter a valid email address
             </div>
-        </div>`;
+        </div>
+    </div>`;
         PSE.classList.remove("disabled");
 
     }
@@ -126,12 +149,13 @@ pmtMt.addEventListener("change", function () {
         var div = document.createElement("div");
         div.innerHTML = ``;
         PSE.innerHTML = "";
-        card.innerHTML = `<h6>Card</h6>
+        card.innerHTML = `
+        <h6>Card</h6>
         <section class="d-flex row">
             <div class="mb-3 inputuna">
                 <label for="basic-url" class="form-label">Name on card</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder=""
+                    <input type="text" name="cardname" class="form-control" placeholder=""
                         aria-describedby="basic-addon3 basic-addon4" id="inputBoxName"
                         required>
                 </div>
@@ -140,29 +164,27 @@ pmtMt.addEventListener("change", function () {
             <div class="mb-3 inputuna">
                 <label for="basic-url" class="form-label">Card number</label>
                 <div class="input-group">
-                    <input type="number" class="form-control inputBoxNum" placeholder=""
+                    <input type="number" name="cardnumber" class="form-control inputBoxNum" placeholder=""
                         aria-describedby="basic-addon3 basic-addon4" required>
                 </div>
             </div>
 
             <div class="mb-3">
                 <div>
-                    <label for="basic-url" class="form-label ">Expiration date (MM/YY)</label>
+                    <label for="basic-url" class="form-label ">Expiration date
+                        (MM/YY)</label>
                 </div>
 
                 <div class="input-group tiny d-inline-flex">
-                    <input type="number" class="form-control" placeholder="Month"
-                        aria-describedby="basic-addon3 basic-addon4" required id="month" min="1"
-                        max="12">
-                    <input type="number" class="form-control" placeholder="Year"
-                        aria-describedby="basic-addon3 basic-addon4" required id="year" min="23"
-                        max="30">
+                    <input type="number" name="expmonth" class="form-control" placeholder="Month"
+                        aria-describedby="basic-addon3 basic-addon4" required id="month"
+                        min="1" max="12">
+                    <input type="number" name="expyear" class="form-control" placeholder="Year"
+                        aria-describedby="basic-addon3 basic-addon4" required id="year"
+                        min="23" max="30">
 
                 </div>
-
             </div>
-
-
         </section>`;
         card.classList.remove("disabled");
         inputNumber();
@@ -223,7 +245,7 @@ function loadCartProducts() {
                             
                             <div class="d-flex stored-item_buy py-2">
                                 <div class="item-pic col-6 d-flex justify-content-center mx-2">
-                                    <img src="${producto.imagen}">
+                                    <img src="../stock/${producto.imagen}">
                                 </div>
 
                                 <div class="details col-6">
@@ -245,7 +267,7 @@ function loadCartProducts() {
                             
                             <div class="d-flex stored-item_buy estilo py-2">
                                 <div class="item-pic col-6 d-flex justify-content-center mx-2">
-                                    <img src="${producto.imagen}">
+                                    <img src="../stock/${producto.imagen}">
                                 </div>
 
                                 <div class="details col-6">
@@ -270,3 +292,4 @@ function updateTotal() {
     const totalCalc = storedCartItems.reduce((i, producto) => i + (producto.cost * producto.cantidad), 0);
     total.innerText = `${totalCalc}`;
 }
+

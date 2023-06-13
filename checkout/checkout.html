@@ -42,7 +42,7 @@
                 <h1>Enter your personal info</h1>
                 <div class="form-text" id="basic-addon4">All fields are required</div>
             </div>
-            <form class="needs-validation" novalidate>
+            <form class="needs-validation" id="lunita" novalidate>
                 <div class="item-list container row d-inline-flex justify-content-between">
                     <div class="checkout-inputs col-lg-8 col-md-12">
                         <div class="pl-2">
@@ -52,7 +52,7 @@
                             <div class="mb-3">
                                 <label for="basic-url" class="form-label">Street address</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="1234 STREET NAME RD"
+                                    <input type="text" name="address" class="form-control" placeholder="1234 STREET NAME RD"
                                         aria-describedby="basic-addon3 basic-addon4" required>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                             <div class="mb-3 col-">
                                 <label for="basic-url" class="form-label">City</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="City name"
+                                    <input type="text" name="city" class="form-control" placeholder="City name"
                                         aria-describedby="basic-addon3 basic-addon4" required>
                                 </div>
                             </div>
@@ -68,7 +68,7 @@
                             <div class="mb-3 col-">
                                 <label for="basic-url" class="form-label">State/province</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="State or province"
+                                    <input type="text" name="state" class="form-control" placeholder="State or province"
                                         aria-describedby="basic-addon3 basic-addon4" required>
                                 </div>
                             </div>
@@ -77,14 +77,14 @@
                                 <div class="mb-3 inputuna">
                                     <label for="basic-url" class="form-label">ZIP code/postal code</label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control inputBoxNum" placeholder="12345"
+                                        <input type="number" name="zip" class="form-control inputBoxNum" placeholder="12345"
                                             aria-describedby="basic-addon3 basic-addon4" id="zip" required>
                                     </div>
                                 </div>
 
                                 <div class="mb-3 inputuna">
-                                    <label for="basic-url" class="form-label">Country</label>
-                                    <select class="form-select" aria-label="Default select example" required>
+                                    <label for="basic-url"  class="form-label">Country</label>
+                                    <select class="form-select" name="pais" aria-label="Default select example" required>
                                         <option selected disabled value="">Choose...</option>
                                         <option value="AF">Afghanistan</option>
                                         <option value="AX">Aland Islands</option>
@@ -346,7 +346,7 @@
                                 <h5>Payment method</h5>
                                 <div class="d-flex row" id="pmtMt2">
                                     <div class="mb-3 inputuna">
-                                        <select class="form-select" aria-label="Default select example" id="pmtMt"
+                                        <select class="form-select" name="pmt" aria-label="Default select example" id="pmtMt"
                                             required>
                                             <option selected disabled value="">Choose...</option>
                                             <option value="Card">Card</option>
@@ -363,7 +363,7 @@
                                         <div class="mb-3 inputuna">
                                             <label for="basic-url" class="form-label">Name on card</label>
                                             <div class="input-group">
-                                                <input type="text" class="form-control" placeholder=""
+                                                <input type="text" name="cardname" class="form-control" placeholder=""
                                                     aria-describedby="basic-addon3 basic-addon4" id="inputBoxName"
                                                     required>
                                             </div>
@@ -372,7 +372,7 @@
                                         <div class="mb-3 inputuna">
                                             <label for="basic-url" class="form-label">Card number</label>
                                             <div class="input-group">
-                                                <input type="number" class="form-control inputBoxNum" placeholder=""
+                                                <input type="number" name="cardnumber" class="form-control inputBoxNum" placeholder=""
                                                     aria-describedby="basic-addon3 basic-addon4" required>
                                             </div>
                                         </div>
@@ -384,10 +384,10 @@
                                             </div>
 
                                             <div class="input-group tiny d-inline-flex">
-                                                <input type="number" class="form-control" placeholder="Month"
+                                                <input type="number" name="expmonth" class="form-control" placeholder="Month"
                                                     aria-describedby="basic-addon3 basic-addon4" required id="month"
                                                     min="1" max="12">
-                                                <input type="number" class="form-control" placeholder="Year"
+                                                <input type="number" name="expyear" class="form-control" placeholder="Year"
                                                     aria-describedby="basic-addon3 basic-addon4" required id="year"
                                                     min="23" max="30">
 
@@ -400,7 +400,7 @@
                                     <div class="d-flex row">
                                         <div class="mb-3 inputuna">
                                             <label for="basic-url" class="form-label">Select your bank</label>
-                                            <select class="form-select" aria-label="Default select example" id="lista"
+                                            <select class="form-select" name="bank" aria-label="Default select example" id="lista"
                                                 required>
                                                 <option selected disabled value="">Choose...</option>
                                                 <option value="Davivienda">Davivienda</option>
@@ -411,7 +411,7 @@
 
                                         <div class="mb-3 inputuna">
                                             <label for="basic-url" class="form-label">Enter your email address</label>
-                                            <input type="text" class="form-control" placeholder="email@domain.com"
+                                            <input type="text" name="pseemail" class="form-control" placeholder="email@domain.com"
                                                 pattern="[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}" id="email" required>
                                             <div class="invalid-feedback">
                                                 Please enter a valid email address
